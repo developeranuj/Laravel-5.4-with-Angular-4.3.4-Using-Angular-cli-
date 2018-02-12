@@ -1,0 +1,27 @@
+<!-- breadcrum -->
+<div class="breadcrum"><i class="fa fa-users" aria-hidden="true"></i> <strong>Patnerships</strong>&nbsp; - &nbsp;  All</div>
+<div class="page_content">
+  <div class="nps row">
+    <div class="text-left">
+      <button class="btn btn-primary mybtn" (click)="getpartnerform()">Create New Patnership</button>
+    </div>
+  </div>
+  <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Partnership no.</th>
+              <th>Builder name</th>
+              <th>Trader name</th>
+              <th>End date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let partnership of partnerships">
+              <td>{{partnership.id}}</td>
+              <td>{{partnership.client?.client_name}}</td>
+              <td>{{partnership.user?.name}}</td>
+              <td>{{partnership.date_end}}</td>
+            </tr>
+          </tbody>
+        </table>
+</div>

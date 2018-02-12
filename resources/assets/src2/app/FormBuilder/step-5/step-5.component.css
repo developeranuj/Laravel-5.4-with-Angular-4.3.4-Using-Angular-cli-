@@ -1,0 +1,50 @@
+.form-area{
+    min-height: 100vh;
+}
+.topBar {
+    background-color: #1e1e1e;
+    text-align: right;
+    border-radius: 0;
+    margin-bottom: 0px;
+    padding: 20px 40px 5px 40px;
+    margin-top: 2px;
+}
+.topBar img{
+        max-height: 45px;
+}
+.bottomBar{
+    margin: 0;
+    background-color: #c5e74e;
+    padding: 5px;
+}
+
+#step_5_executive_content{
+    border: 0;
+    background-color: transparent;
+}
+#footer{
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+}
+#step-5{
+    position: relative;
+    min-height: 100%;
+}
+#bottom_image{
+    position: absolute;
+    width: 100%;
+    bottom: 100px;
+    text-align: center;
+}
+#bottom_image img{
+    width: 100%;
+    height: 250px;
+}
+.step_inner_content{
+    margin-bottom: 260px;
+}
+.inner-content h3 {
+    color: #91ad32;
+}

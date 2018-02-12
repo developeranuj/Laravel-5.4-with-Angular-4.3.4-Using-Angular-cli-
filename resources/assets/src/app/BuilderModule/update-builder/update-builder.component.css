@@ -1,0 +1,14 @@
+#preview{
+	max-width: 100px;
+	border-radius: 50px;
+}
+#builder_form{
+	padding: 15px;
+    margin-top: 10px;
+    
+    box-shadow: 0 0 5px;
+}
+.customButton{
+	background-color: #1e1e1e;
+	color: #fff;
+}

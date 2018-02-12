@@ -1,0 +1,16 @@
+.forgottext {
+    margin-top: 15px;
+    padding: 10px;
+    cursor: pointer;
+}
+.mybtn{
+    background-color: #c5e74e;
+    border-color: #c5e74e;
+    color: #1e1e1e;
+}
+.forgottext p{
+    color: #fff;
+}
+.forgottext a{
+    color: #fff;
+}

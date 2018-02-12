@@ -1,0 +1,28 @@
+<div class="breadcrum"><i class="fa fa-user-plus" aria-hidden="true"></i> <strong>Builders</strong>&nbsp; - &nbsp;  View All</div>
+<div class="page_content">
+  <div class="nps">
+    <button class="btn btn-default mybtn" routerLink = "create">Create New Builder</button>
+  </div>
+  <table class="table table-striped table-responsive">
+    <thead>
+      <tr>
+        <th>Builder's Code</th>
+        <th>Builder's Name</th>
+        <th>Company Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let builder of builders index as i">
+        <td>{{builder.client_code}}</td>
+        <td>{{builder.client_name}}</td>
+        <td>{{builder.company_name}}</td>
+        <td>
+          <button class="btn btn-primary" [routerLink]="[builder.id]"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
+          <button class="btn btn-success" [routerLink]="['update/',builder.id]"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+          <button class="btn btn-danger" (click)="delete_builder(builder.id,i)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

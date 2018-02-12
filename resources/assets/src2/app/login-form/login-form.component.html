@@ -1,0 +1,23 @@
+<div>
+	<h4 style="color: white">Admin Panel</h4>
+	<div class="alert alert-success" *ngIf="erroStatus">
+		<p>{{errMsg | uppercase}}</p>
+	</div>
+	<form #loginForm = "ngForm" (ngSubmit)="login(loginForm.value);loginForm.reset()" ngNativeValidate>
+		<div class="login-form-content">
+			<div class="form-group">
+				<input type="email" name="email" class="form-control input-lg" placeholder="Enter your email"  required ngModel>
+			</div>
+			<div class="form-group">
+				<input type="password" name="password" class="form-control input-lg" placeholder="Enter your password" required ngModel>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn form-control input-lg login-button btnSubmit">Login</button>
+		  </div>
+		  <div class="forgottext">	
+			<p class="lnks"><a routerLink='forgotPassowrd/'>Forgot your Password?</a></p>
+		<!--	<p class="lnks"><a routerLink = 'signup/'>Create a New Account</a></p> -->
+		  </div>	
+		</div>
+	</form>
+</div>

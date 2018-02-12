@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-sm-8 form-content" #content>  
+    <div class="page" id="content">
+      <!-- step-15-->
+      <div class="pdf_content" id="content" style="position: relative;
+          height: 840px;">
+           <div class="jumbotron topBar"  style=" background-color: #1e1e1e;
+          text-align: right;
+          border-radius: 0;
+          margin-bottom: 0px;
+          padding: 20px 40px 5px 40px;
+          margin-top: 2px;">
+               <img src="images/logo.svg" style="max-height: 45px;">
+            </div>
+            <hr class="bottomBar" style=" margin: 0;
+          background-color: #c5e74e;
+          padding: 5px;">
+            <div class="content" style="padding-left:30px;
+          padding-right: 30px">
+                <div class="head">
+                  <div class="headings">
+                     <h2 class="step-head">
+                    Contact Us
+                     </h2>
+                   </div>
+                 </div>
+            <div class="text-left" [innerHTML]="step_15_data">
+               
+            </div>
+         </div>
+           <div class="step-footer" style="position: absolute;
+         bottom: 30px;
+         width: 100%;">
+             <hr class="bottomBar" style="    margin: 0;
+          background-color: #c5e74e;
+          padding: 4px;">
+         </div>
+      </div>
+    </div>
+    <div class="page-header">
+      <h3>Form Preview</h3>
+    </div>
+   <div  #data [innerHtml]="pdf_content | safeHtml" style="background-color: #fff"></div>
+</div>
+ <div class="col-sm-4 form-sidebar">
+<!-- step-15 -sidebar -->
+     <div class="aside-section" >
+      <aside>
+         <h4 class="text-left">Step-15</h4>
+          <button type="submit" routerLink="../step-14" class="btn btn-default customButton">Prev</button>
+         <button type="submit" (click)="pdf()" class="btn btn-default customButton">Submit & Get PDF</button> 
+      </aside>
+   </div>
+ </div>
+</div>
+
+
+<div class="last-page">
+  <div  class="center">
+    <img src="images/logo.svg">
+    <br>
+    <p>Flexibility - Passion - Partership</p>
+  </div>
+  <div class="row botm">
+    <div class="col-sm-3 text-center">
+     <p><i class="fa fa-phone" aria-hidden="true"></i> 1300 300 483</p>
+    </div>
+    <div class="col-sm-3 text-center">
+     <p><i class="fa fa-print" aria-hidden="true"></i> 1300 300 483</p>
+    </div>
+    <div class="col-sm-3 text-center">
+      <p><i class="fa fa-at" aria-hidden="true"></i> service@game.com.au</p>
+    </div>
+    <div class="col-sm-3 text-center">
+    <p><i class="fa fa-facebook-official" aria-hidden="true"></i> TRADERGSM</p>
+    </div>
+  </div>
+</div>

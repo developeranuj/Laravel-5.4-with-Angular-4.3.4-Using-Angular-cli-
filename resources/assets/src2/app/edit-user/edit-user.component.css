@@ -1,0 +1,33 @@
+.forgottext {
+    margin-top: 15px;
+    padding: 10px;
+    cursor: pointer;
+}
+.mybtn{
+    background-color: #1e1e1e;
+    color: #fff;
+}
+.forgottext p{
+    color: #fff;
+}
+.forgottext a{
+    color: #fff;
+}
+.newu_form
+{
+	padding: 20px;
+    float: none;
+}
+.newuhead{
+	margin-bottom: 20px;
+	padding: 10px;
+}
+.control-label{
+    text-align: left !important;
+}
+.ng-dirty .ng-invalid{
+    border-color: red;
+}
+.ng-valid {
+    border-color: green;
+}

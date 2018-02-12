@@ -1,0 +1,42 @@
+<div class="form-area">
+	<div class="col-sm-8 form-content">
+		<div class="page">			
+			<!-- header -->
+			<div class="jumbotron topBar">
+				<img src="images/logo.svg">
+			</div>
+			<hr class="bottomBar">
+			<!-- content div -->
+			<div class="inner-content" id="step-7">
+				<h3>Trader Product Ranges</h3>
+				<div [innerHtml]="step_7_heading_1_content"></div>
+			</div>
+			<div class="step-footer">
+	          <hr class="bottomBar">
+	        </div>
+		</div>
+	</div>
+	<!-- sidebar -->
+	<div class="col-sm-4 form-sidebar">
+		<div id="step_7_sidebar">
+			<div class="page-header">
+				<h4>Step 7</h4>
+			</div>
+			<form *ngIf="!read_mode ; else readBlock" #step_7_form = "ngForm" (ngSubmit)="step_7_form.reset()">
+				
+				<div class="button_position">
+					<button type="button" class="btn btn-primary" routerLink="../step-6/" (click)="step_7_form_submit(step_7_form.value)">Prev</button>
+					<button type="button" class="btn btn-primary" routerLink="../step-8/" (click)="step_7_form_submit(step_7_form.value)">Next</button>
+				</div>
+				<div class="form-group">
+					<label>Trader Product Ranges</label>
+					<ck-editor name="step_7_heading_1_content" [(ngModel)]="step_7_heading_1_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+				</div>
+			</form>
+			<ng-template #readBlock>
+				<button type="button" class="btn btn-primary" routerLink="../step-6/">Prev</button>
+					<button type="button" class="btn btn-primary" routerLink="../step-8/">Next</button>
+			</ng-template>
+		</div>
+	</div>
+</div>

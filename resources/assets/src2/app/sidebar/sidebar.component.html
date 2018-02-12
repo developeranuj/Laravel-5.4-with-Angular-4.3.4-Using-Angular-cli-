@@ -1,0 +1,73 @@
+ <div class="row head">
+  <div class="col-sm-2 col-xs-5 text-left logo">  
+      <a routerLink="/"> <img  clas="img-responsive" src="images/logo.svg" alt="logo"/></a>
+  </div>
+  <div class="text-left col-sm-1 col-xs-2">
+    <i class="fa fa-bars toggle-btn" aria-hidden="true" (click)="test()"></i>
+  </div>
+  <div class="col-sm-3 col-sm-offset-6 col-xs-5 lgbtn">
+      <div class="text-center">
+      <p id="username"><i class="fa fa-user-circle" aria-hidden="true"></i>  {{currentUser?.name}}</p>
+      <p (click)="logout()" id="btn_logout"><i class="fa fa-power-off" aria-hidden="true"></i>  Logout</p>
+    </div>
+  </div>
+  </div>
+  
+  <!-- sidebar -->
+
+ <div class="sidebar" [ngClass]="{'sidenav':showhidenav}">  
+ <ul class="mainmenu">
+ 	<li>
+ 	  <a (click)="window_width < 769 ? test():false" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact: true }" routerLink="/admin-tools"><i class="fa fa-info-circle" aria-hidden="true"></i> Company Details</a>
+ 	</li>
+	<li>
+	 <a (click)="rotation()" href="#submenu" data-toggle="collapse">
+	 <i class="fa fa-users" aria-hidden="true"></i> 
+	 Users
+	<span class="text-right"><i [ngClass]="{'fa-rotate-90':rotate}" class="fa fa-angle-right  pull-right" aria-hidden="true"></i></span>
+    </a> 
+		<ul class="collapse submenu" id="submenu">
+			  <li>
+			  	<a (click)="window_width < 769 ? test():false" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact: true }" routerLink = "user/create/">
+			  	  Create New User
+			  	</a>
+			  </li>
+			 <li>
+			    <a (click)="window_width < 769 ? test():false" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact: true }" routerLink = "user/">
+			     View All Users
+			    </a>
+		    </li>	
+		</ul>
+   </li>	
+   <li>
+   	  <a (click)="rotation1()" href="#submenu2" data-toggle="collapse">
+      <i class="fa fa-wrench" aria-hidden="true"></i>
+   	  Partnership Setting
+   	  <span class="text-right"><i [ngClass]="{'fa-rotate-90':rotate1}" class="fa fa-angle-right  pull-right" aria-hidden="true"></i></span>
+   	  </a>
+	   	<ul class="collapse submenu" id="submenu2">
+		   	  <li>
+		   	  	 <a (click)="window_width < 769 ? test():false" routerLinkActive="active current" routerLink="agreement/">Partnership - Agreement</a>
+		   	  </li>
+	   	</ul>
+   </li>
+   <li>
+	  <a href="/">
+	   <i class="fa fa-user" aria-hidden="true"></i> 
+	   Trader's App
+	  </a>
+   </li>	
+   <li>
+	  <a>
+	  	<i class="fa fa-question-circle" aria-hidden="true"></i>
+	  	 Help
+	  </a>
+   </li>  
+ </ul>
+
+</div>
+
+      <div class="main-content" [ngClass]="{'content':showhidenav}" >
+        <!-- Main content --> 
+         <router-outlet></router-outlet> 
+  </div>

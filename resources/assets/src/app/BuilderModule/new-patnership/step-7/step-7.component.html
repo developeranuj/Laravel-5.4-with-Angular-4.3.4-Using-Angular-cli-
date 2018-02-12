@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-sm-8 form-content" #content>
+    <div class="page" id="content">  
+      <!-- step-7-->
+      <div class="pdf_content step_7" id="step_7" style="position: relative;
+      height: 840px; overflow: hidden;">
+        <div class="jumbotron topBar" style=" background-color: #1e1e1e;
+      text-align: right;
+      border-radius: 0;
+      margin-bottom: 0px;
+      padding: 20px 40px 5px 40px;
+      margin-top: 2px;">
+          <img src="images/logo.svg" style="max-height: 45px;">
+        </div>
+        <hr class="bottomBar" style="    margin: 0;
+      background-color: #c5e74e;
+      padding: 5px;">
+        <div class="content" style="padding-left:30px;
+      padding-right: 30px">
+          <div class="head">
+            <div class="headings">
+              <h2 class="step-head">
+                  Trader Product Ranges
+                 </h2>
+            </div>
+          </div>
+          <div class="text-left" [innerHTML]="step_7_data"></div>
+        </div>
+        <div class="step-footer" style="position: absolute;
+     bottom: 30px;
+     width: 100%;">
+          <hr class="bottomBar" style="    margin: 0;
+      background-color: #c5e74e;
+      padding: 4px;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 form-sidebar">
+    <!-- step-7-sidebar -->
+    <div class="aside-section">
+      <aside>
+        <h4 class="text-left">Step-7</h4>
+        <button type="submit" routerLink="../step-6" class="btn btn-default customButton">Prev</button>
+        <button type="submit" (click)="nextstep()" class="btn btn-default customButton">Next</button>
+        <!-- <button type="button" class="btn btn-success" (click)="print()">Print PDF</button> -->
+      </aside>
+    </div>
+  </div>
+</div>

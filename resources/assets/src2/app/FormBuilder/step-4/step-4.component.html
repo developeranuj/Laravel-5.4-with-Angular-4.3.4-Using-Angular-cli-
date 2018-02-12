@@ -1,0 +1,58 @@
+<div class="form-area">
+	<div class="col-sm-8 form-content">
+		<div class="page">
+			<!-- header -->
+			<div class="jumbotron topBar">
+				<img src="images/logo.svg">
+			</div>
+			<hr class="bottomBar">
+			<!-- content div -->
+			<div class="inner-content" id="step-4">
+				<h3 id="step_4_heading">Executive Summary</h3>
+				<div class="step_inner_content" [innerHtml]="step_4_executive_summary"></div>
+				
+			</div>
+			<div class="test"></div>
+			<div id="bottom_image">
+					<img [src]="step_4_image_url" alt="footer image">
+			</div>
+			<div class="step-footer">
+	          <hr class="bottomBar">
+	        </div>
+		</div>
+	</div>
+	<!-- sidebar -->
+	<div class="col-sm-4 form-sidebar">
+		<div id="step_4_sidebar">
+			<div class="page-header">
+				<h4>Step 4</h4>
+			</div>
+			<form *ngIf="!read_mode ; else readBlock" #step_4_form = "ngForm" (ngSubmit)="step_4_form.reset()">
+				<div class="button_position">
+					<button type="button" class="btn btn-primary" routerLink="../step-3/" (click)="step_4_form_submit()">Prev</button>
+					<button type="button" class="btn btn-primary" routerLink="../step-5/" (click)="step_4_form_submit()">Next</button>
+				</div>
+				<div class="form-group">
+					<label>Executive Summary</label>
+					<ck-editor name="step_4_executive_summary" [(ngModel)]="step_4_executive_summary" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor><br>
+					<span class="text-muted">(Type @@@builder_name@@@ where want to put builder name)</span>
+				</div>
+				<!-- image upload -->
+				<div class="form-group">
+					<label>Insert Images</label>
+					<input class="form-control" type="file" name="step_4_image" (change)="step_4_image_upload($event)">
+				</div>
+				<div>
+	                <ul class="list-group">
+	                    <li *ngIf="step_4_image_url" class="list-group-item">
+	                    <img style="width: 50px; height: 50px" [src]="step_4_image_url"> &nbsp; <i class="fa fa-times fa-2x" aria-hidden="true" (click)="delete_image()"></i></li>
+	                </ul>
+	            </div>	
+			</form>
+			<ng-template #readBlock>
+				<button type="button" class="btn btn-primary" routerLink="../step-3/">Prev</button>
+					<button type="button" class="btn btn-primary" routerLink="../step-5/">Next</button>
+			</ng-template>
+		</div>
+	</div>
+</div>

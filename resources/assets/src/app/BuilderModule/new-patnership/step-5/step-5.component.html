@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-sm-8 form-content" #content>
+    <div class="page" id="content">
+      <!-- step-5 -->
+      <div class="pdf_content step_5" id="step_5" style="height: 840px;overflow: hidden;position: relative;">
+        <div class="jumbotron topBar" style="background-color: #1e1e1e;text-align: right;border-radius: 0;margin-bottom: 0px; padding: 20px 40px 5px 40px;    margin-top: 2px;">
+          <img src="images/logo.svg" class="logo_image" style="max-height: 45px;">
+        </div>
+        <hr class="bottomBar" style="margin: 0;background-color: #c5e74e;padding: 5px;">
+        <div class="content" style="padding-left: 45px;padding-right: 45px;">
+          <div class="head">
+            <div class="headings">
+              <h2 class="step-head">
+                   Trader -100 Years of Family Electrical Tradition
+                 </h2>
+            </div>
+          </div>
+          <div class="text-left" [innerHTML]="step_5_data?.step_5_executive_content"></div>
+          <div class="step_5_image" style="position: absolute;width: 100%;bottom: 60px;right: 0px;">
+            <img src="{{step_5_data?.step_5_image_url}}" style=" height: 250px;    width: 100%;" />
+          </div>
+        </div>
+        <div class="step-footer" style=" position: absolute;
+     bottom: 30px;
+     width: 100%;">
+          <hr class="bottomBar" style="margin: 0;
+      background-color: #c5e74e;
+      padding: 4px;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 form-sidebar">
+    <!-- step-5 -sidebar -->
+    <div class="aside-section">
+      <aside>
+        <h4 class="text-left">Step-5</h4>
+        <button type="submit" routerLink="../step-4" class="btn btn-default customButton">Prev</button>
+        <button type="submit" (click)="nextstep()" class="btn btn-default customButton">Next</button>
+        <!-- <button type="button" class="btn btn-success" (click)="print()">Print PDF</button> -->
+      </aside>
+    </div>
+  </div>
+</div>

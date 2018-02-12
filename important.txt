@@ -1,0 +1,2 @@
+where images url is saved to db -> they are send as JSON.stringify
+now all steps data is sent after doing JSON.stringify

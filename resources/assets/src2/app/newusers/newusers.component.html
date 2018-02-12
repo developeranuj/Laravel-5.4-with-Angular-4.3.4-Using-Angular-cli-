@@ -1,0 +1,88 @@
+<!-- breadcrum -->
+<div class="breadcrum"><a routerLink="../"><i class="fa fa-users" aria-hidden="true"></i> <strong>Users</strong></a>&nbsp; - &nbsp;  Create</div>
+<!-- page  content -->
+<div class="page_content">
+  
+<div class="build">
+  
+  <div class="newu_form col-sm-10">
+    
+    <form class="form-horizontal" role="form" #createUserForm="ngForm" (ngSubmit)="createUser(createUserForm.value,createUserForm) " ngNativeValidate>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">* Enter Name:</label>
+        <div class="col-sm-7">
+          <input type="text" minlength="4" pattern="[a-zA-Z][a-zA-Z ]+" required ngModel name="name" #username="ngModel" class="form-control" id="name" placeholder="Enter Name">
+        </div>
+        <div *ngIf="username.touched && !username.valid" class="text-danger  col-sm-3">
+          <div *ngIf="username.errors.required">Enter the name</div>
+          <div *ngIf="username.errors.minlength">should have minimum 4 characters.</div>
+          <div *ngIf="username.errors.pattern">name have only alphbets</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="contact">* Enter Contact:</label>
+        <div class="col-sm-7">
+          <input type="text" pattern="[0-9]*" minlength="10" maxlength="10" required ngModel name="contact" #contact="ngModel" class="form-control" id="contact" placeholder="Enter Contact">
+        </div>
+        <div *ngIf="contact.touched && !contact.valid" class="text-danger  col-sm-3">
+          <div *ngIf="contact.errors.required">Please Enter the Contact</div>
+          <div *ngIf="contact.errors.minlength">Should Have min 10 digits</div>
+          <div *ngIf="contact.errors.maxlength">Should Have max 10 digits</div>
+          <div *ngIf="contact.errors.pattern">contact have only digits</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="mobile">* Enter Mobile:</label>
+        <div class="col-sm-7">
+          <input type="text" pattern="[0-9]*" minlength="10" maxlength="10" required ngModel name="mobile" #mobile="ngModel" class="form-control" id="mobile" placeholder="Enter Mobile">
+        </div>
+        <div *ngIf="mobile.touched && !mobile.valid" class="text-danger  col-sm-3">
+          <div *ngIf="mobile.errors.required">Please Enter the Mobile</div>
+          <div *ngIf="mobile.errors.minlength">Should Have min 10 digits</div>
+          <div *ngIf="mobile.errors.maxlength">Should Have max 10 digits</div>
+          <div *ngIf="mobile.errors.pattern">mobile have only digits</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="email">* Enter Email:</label>
+        <div class="col-sm-7">
+          <input type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel name="email" #email="ngModel" class="form-control" id="email" placeholder="Enter Email">
+        </div>
+        <div *ngIf="email.touched && !email.valid" class="text-danger  col-sm-3">
+          <div *ngIf="email.errors.required">Please Enter the Email</div>
+          <div *ngIf="email.errors.pattern">Enter Valid Email Address</div>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">* Enter Password:</label>
+        <div class="col-sm-7">
+          <input type="password" required ngModel name="pwd" class="form-control" id="pwd" #password="ngModel" placeholder="Enter Password">
+        </div>
+        <div *ngIf="password.touched && !password.valid" class="text-danger  col-sm-3">
+          <div *ngIf="password.errors.required">Please Enter the password</div>
+        </div>
+      </div> -->
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="role">* Select Role:</label>
+        <div class="col-sm-7">
+          <select [(ngModel)]="value" required name="role" #role="ngModel" class="form-control">
+            <option [value]="none" [selected]="none" disabled>Please Select Role</option>
+            <option *ngFor="let option of identification" [value]="option.role">{{ option.name }}</option>
+          </select>
+        </div>
+        <div *ngIf="role.touched && !role.valid" class="text-danger  col-sm-3">
+          <div *ngIf="role.errors.required">Please select the Role</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-7">
+          <button type="submit" [disabled]="!createUserForm.form.valid" class="btn btn-default mybtn">Create User</button>
+        </div>
+      </div>
+    </form>
+
+
+</div>
+<div *ngIf="service?.notification?.notification_status" class="notify" [ngClass]="{'notify-success': service?.notification?.action_status, 'notify-warning': !action_status}"><strong>{{service?.notification?.notification_message}}</strong></div>
+</div>
+</div>

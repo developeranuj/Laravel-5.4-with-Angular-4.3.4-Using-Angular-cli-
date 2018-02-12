@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-sm-8 form-content" #content>
+    <div class="page" id="content">  
+      <!-- step-3 -->
+      <div class="pdf_content step_3" style="height: 840px;position: relative;
+       width: 100%; overflow: hidden;" id="step_3">
+        <div class="jumbotron topBar">
+          <img src="images/logo.svg" class="logo_image">
+        </div>
+        <hr class="bottomBar">
+        <div class="content" style="min-height: 301px;padding-left: 45px;    padding-right: 45px;">
+          <div class="head">
+            <div class="headings">
+              <h2 class="step-head">
+                   {{builderselected.getclient[0].client_name | uppercase}} {{step_3_heading1}}
+                 </h2>
+            </div>
+          </div>
+          <div>
+            <h4><b>{{step_3_data.contact_ACN}} : </b>
+                    <span>{{selectedClientdetail[0]?.acn}}</span></h4>
+            <h4><b>{{step_3_data.contact_Region}} : </b>
+                    <span>{{selectedClientdetail[0]?.client_address.postal_state_region}}</span></h4>
+            <h4><b>{{step_3_data.contact_Address}} : </b>
+                    <span>{{selectedClientdetail[0]?.client_address.postal_address_line_1}}</span></h4>
+            <h4><b>{{step_3_data.contact_Executive}} : </b>
+                    <span>{{selectedClientdetail[0]?.client_address.physical_state_region}}</span></h4>
+          </div>
+        </div>
+        <div class="step-footer" style="width: 100%;">
+          <hr class="bottomBar1" style=" margin: 0;background-color: #1e1e1e;padding: 4px;">
+        </div>
+        <div class="content" style="min-height: 301px;padding-left: 45px;    padding-right: 45px;">
+          <div class="head">
+            <div class="headings">
+              <h2 class="step-head">
+                    {{step_3_heading2}}
+                 </h2>
+            </div>
+          </div>
+          <div>
+            <h4><b>{{step_3_data.trader_Contact}} : </b>
+                      <span>{{selectedtraderdetail.contact}}</span></h4>
+            <h4><b>{{step_3_data.trader_Mobile}} : </b><span>{{selectedtraderdetail.mobile}}</span></h4>
+            <h4><b>{{step_3_data.trader_email}} : </b><span>{{selectedtraderdetail.email}}</span></h4>
+          </div>
+        </div>
+        <div class="step-footer" style="width: 100%;">
+          <hr class="bottomBar1" style=" margin: 0;
+      background-color: #1e1e1e;
+      padding: 4px;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 form-sidebar">
+    <!-- step-3-sidebar -->
+    <div class="aside-section">
+      <aside>
+        <h4 class="text-left">Step-3</h4>
+        <label>Select Trader</label>
+        <select class="form-control" [(ngModel)]="selectedtrader" (change)="gettraderdata(selectedtrader)" name="trader" required>
+          <option *ngFor="let trader of traders" [ngValue]="trader">{{trader.name}}</option>
+        </select>
+        <button type="submit" routerLink="../step-2" class="btn btn-default customButton">Prev</button>
+        <button type="submit" (click)="nextstep()" class="btn btn-default customButton">Next</button>
+      </aside>
+    </div>
+  </div>
+</div>

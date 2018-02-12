@@ -1,0 +1,231 @@
+<div class="row">
+  <div class="col-sm-8 form-content" id="content" #content>
+    <!-- step-10 -->
+    <div class="pdf_content step_10" id="step_10" style="position: relative;
+      height: 840px; background-color:#fff;box-sizing: border-box;box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);border-bottom: 1px solid #000;">
+      <!-- header -->
+      <div class="jumbotron topBar" style=" background-color: #1e1e1e;    text-align: right;border-radius: 0;margin-bottom: 0px;padding: 20px 40px 5px 40px;margin-top: 2px;">
+        <img src="images/logo.svg" style="max-height: 45px;">
+      </div>
+      <hr class="bottomBar" style=" margin: 0;background-color: #c5e74e;   padding: 5px;">
+
+      <!-- content -->
+      <h2 class="step-head" style="padding: 0 20px;">
+        Proposal
+      </h2>
+
+      <!-- question -1 -->
+      <div *ngIf="step_10_data?.step_10_question_1" class="step_10_content">
+        <!-- question 1 checkbox -->
+        <div *ngIf="step_10_question_1">
+          <input type="checkbox" name="step_10_question_1_checkbox" [(ngModel)]="step_10_question_1_checkbox">
+          <label>{{step_10_data?.step_10_question_1}}</label>
+        </div>
+        <!-- question 1 inputs -->
+        <div *ngIf="step_10_question_1_checkbox">
+          <input type="text" name="step_10_question_1_answer_1" [(ngModel)]="step_10_question_1_answer_1" placeholder="from">
+          <input type="text" name="step_10_question_1_answer_2" [(ngModel)]="step_10_question_1_answer_2" placeholder="to">
+          <button type="button" (click)="step_10_question_1_submit()">Enter</button>
+        </div>
+        <!-- question 1 content -->
+        <div *ngIf="step_10_question_1_content">
+          <h4>{{step_10_data?.step_10_question_1}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_1_content"></p>
+        </div>
+      </div>
+      <!-- question -2 -->
+      <div *ngIf="step_10_data?.step_10_question_2" class="step_10_content">
+        <!-- question 2 checkbox -->
+        <div *ngIf="step_10_question_2">
+          <input type="checkbox" name="step_10_question_2_checkbox" [(ngModel)]="step_10_question_2_checkbox" (change)="step_10_question_2_submit()">
+          <label>{{step_10_data?.step_10_question_2}}</label>
+        </div>
+        <!-- question 2 content -->
+        <div *ngIf="step_10_question_2_checkbox">
+          <h4>{{step_10_data?.step_10_question_2}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_2_content"></p>
+        </div>
+      </div>
+      <!-- question 3 -->
+      <div *ngIf="step_10_data?.step_10_question_3" class="step_10_content">
+        <!-- question 3 checkbox -->
+        <div *ngIf="step_10_question_3">
+          <input type="checkbox" name="step_10_question_3_checkbox" [(ngModel)]="step_10_question_3_checkbox" (change)="step_10_question_3_submit()">
+          <label>{{step_10_data?.step_10_question_3}}</label>
+        </div>
+        <!-- question 3 cotent -->
+        <div *ngIf="step_10_question_3_checkbox">
+          <h4>{{step_10_data?.step_10_question_3}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_3_content"></p>
+        </div>
+      </div>
+      <!-- question 4 -->
+      <div *ngIf="step_10_data?.step_10_question_4" class="step_10_content">
+        <!-- question 4 checkbox -->
+        <div *ngIf="step_10_question_4">
+          <input type="checkbox" name="step_10_question_4_checkbox" [(ngModel)]="step_10_question_4_checkbox">
+          <label>{{step_10_data?.step_10_question_4}}</label>
+        </div>
+        <!-- question 4 inputs -->
+        <div *ngIf="step_10_question_4_checkbox">
+          <input type="text" name="step_10_question_4_answer_1" [(ngModel)]="step_10_question_4_answer_1" placeholder="Houses amount">
+          <input type="text" name="step_10_question_4_answer_2" [(ngModel)]="step_10_question_4_answer_2" placeholder="Units amount">
+          <button type="button" (click)="step_10_question_4_submit()">Enter</button>
+        </div>
+        <!-- question 4 content -->
+        <div *ngIf="step_10_question_4_content">
+          <h4>{{step_10_data?.step_10_question_4}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_4_content"></p>
+        </div>
+      </div>
+      <!-- question 5 -->
+      <div *ngIf="step_10_data?.step_10_question_5" class="step_10_content">
+        <!-- question 5 checkbox -->
+        <div *ngIf="step_10_question_5">
+          <input type="checkbox" name="step_10_question_5_checkbox" [(ngModel)]="step_10_question_5_checkbox">
+          <label>{{step_10_data?.step_10_question_5}}</label>
+        </div>
+        <!-- question 5 inputs -->
+        <div *ngIf="step_10_question_5_checkbox">
+          <input type="text" name="step_10_question_5_answer_1" [(ngModel)]="step_10_question_5_answer_1" placeholder="Support products amount">
+          <button type="button" (click)="step_10_question_5_submit()">Enter</button>
+        </div>
+        <!-- question 5 content -->
+        <div *ngIf="step_10_question_5_content">
+          <h4>{{step_10_data?.step_10_question_5}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_5_content"></p>
+        </div>
+      </div>
+      <!-- question 6 -->
+      <div *ngIf="step_10_data?.step_10_question_6" class="step_10_content">
+        <!-- question 6 checkbox -->
+        <div *ngIf="step_10_question_6">
+          <input type="checkbox" name="step_10_question_6_checkbox" [(ngModel)]="step_10_question_6_checkbox">
+          <label>{{step_10_data?.step_10_question_6}}</label>
+        </div>
+        <!-- question 6 inputs -->
+        <div *ngIf="step_10_question_6_checkbox">
+          <input type="text" name="step_10_question_6_answer_1" [(ngModel)]="step_10_question_6_answer_1" placeholder="Support cash amount">
+          <input type="text" name="step_10_question_6_answer_2" [(ngModel)]="step_10_question_6_answer_2" placeholder="Support cash year">
+          <button type="button" (click)="step_10_question_6_submit()">Enter</button>
+        </div>
+        <!-- question 6 content -->
+        <div *ngIf="step_10_question_6_content">
+          <h4>{{step_10_data?.step_10_question_6}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_6_content"></p>
+        </div>
+      </div>
+      <!-- question 7 -->
+      <div *ngIf="step_10_data?.step_10_question_7" class="step_10_content">
+        <!-- question 7 checkbox -->
+        <div *ngIf="step_10_question_7">
+          <input type="checkbox" name="step_10_question_7_checkbox" [(ngModel)]="step_10_question_7_checkbox">
+          <label>{{step_10_data?.step_10_question_7}}</label>
+        </div>
+        <!-- question 7 inputs -->
+        <div *ngIf="step_10_question_7_checkbox">
+          <input type="text" name="step_10_question_7_answer_1" [(ngModel)]="step_10_question_7_answer_1" placeholder="Joint marketing material">
+          <button type="button" (click)="step_10_question_7_submit()">Enter</button>
+        </div>
+        <!-- question 7 content -->
+        <div *ngIf="step_10_question_7_content">
+          <h4>{{step_10_data?.step_10_question_7}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_7_content"></p>
+        </div>
+      </div>
+      <!-- question 8 -->
+      <div *ngIf="step_10_data?.step_10_question_8" class="step_10_content">
+        <!-- question 8 checkbox -->
+        <div *ngIf="step_10_question_8">
+          <input type="checkbox" name="step_10_question_8_checkbox" [(ngModel)]="step_10_question_8_checkbox">
+          <label>{{step_10_data?.step_10_question_8}}</label>
+        </div>
+        <!-- question 8 inputs -->
+        <div *ngIf="step_10_question_8_checkbox">
+          <input type="text" name="step_10_question_8_answer_1" [(ngModel)]="step_10_question_8_answer_1" placeholder="Joint marketing fund">
+          <button type="button" (click)="step_10_question_8_submit()">Enter</button>
+        </div>
+        <!-- question 8 content -->
+        <div *ngIf="step_10_question_8_content">
+          <h4>{{step_10_data?.step_10_question_8}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_8_content"></p>
+        </div>
+      </div>
+      <!-- question 9 -->
+      <div *ngIf="step_10_data?.step_10_question_9" class="step_10_content">
+        <!-- question 9 checkbox -->
+        <div *ngIf="step_10_question_9">
+          <input type="checkbox" name="step_10_question_9_checkbox" [(ngModel)]="step_10_question_9_checkbox">
+          <label>{{step_10_data?.step_10_question_9}}</label>
+        </div>
+        <!-- question 9 inputs -->
+        <div *ngIf="step_10_question_9_checkbox">
+          <input type="text" name="step_10_question_9_answer_1" [(ngModel)]="step_10_question_9_answer_1" placeholder="Promotional opportunities">
+          <button type="button" (click)="step_10_question_9_submit()">Enter</button>
+        </div>
+        <!-- question 9 content -->
+        <div *ngIf="step_10_question_9_content">
+          <h4>{{step_10_data?.step_10_question_9}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_9_content"></p>
+        </div>
+      </div>
+      <!-- question 10 -->
+      <div *ngIf="step_10_data?.step_10_question_10" class="step_10_content">
+        <!-- question 10 checkbox -->
+        <div *ngIf="step_10_question_10">
+          <input type="checkbox" name="step_10_question_10_checkbox" [(ngModel)]="step_10_question_10_checkbox" (change)="step_10_question_10_submit()">
+          <label>{{step_10_data?.step_10_question_10}}</label>
+        </div>
+        <!-- question 10 content -->
+        <div *ngIf="step_10_question_10_content">
+          <h4>{{step_10_data?.step_10_question_10}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_10_content"></p>
+        </div>
+      </div>
+      <!-- question 11 -->
+      <div *ngIf="step_10_data?.step_10_question_11" class="step_10_content">
+        <!-- question 11 checkbox -->
+        <div *ngIf="step_10_question_11">
+          <input type="checkbox" name="step_10_question_11_checkbox" [(ngModel)]="step_10_question_11_checkbox" (change)="step_10_question_11_submit()">
+          <label>{{step_10_data?.step_10_question_11}}</label>
+        </div>
+        <!-- question 11 content -->
+        <div *ngIf="step_10_question_11_content">
+          <h4>{{step_10_data?.step_10_question_11}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_11_content"></p>
+        </div>
+      </div>
+      <!-- question 12 -->
+      <div *ngIf="step_10_data?.step_10_question_12" class="step_10_content">
+        <!-- question 12 checkbox -->
+        <div *ngIf="step_10_question_12">
+          <input type="checkbox" name="step_10_question_12_checkbox" [(ngModel)]="step_10_question_12_checkbox" (change)="step_10_question_12_submit()">
+          <label>{{step_10_data?.step_10_question_12}}</label>
+        </div>
+        <!-- question 12 content -->
+        <div *ngIf="step_10_question_12_content">
+          <h4>{{step_10_data?.step_10_question_12}}</h4>
+          <p [innerHtml]="step_10_data?.step_10_question_12_content"></p>
+        </div>
+      </div>
+
+      <div class="step-footer" style="position: absolute;bottom: 30px;width: 100%;">
+        <hr class="bottomBar" style="margin: 0;background-color: #c5e74e;    padding: 4px;">
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 form-sidebar">
+    <!-- step-10 -sidebar -->
+    <div class="aside-section">
+      <aside>
+        <h4 class="text-left">Step-10</h4>
+        <!-- <button type="button" class="btn btn-default" (click)="make_a4()">Preview</button> -->
+        <button type="submit" routerLink="../step-9" class="btn btn-default customButton">Prev</button>
+        <button type="submit" (click)="nextstep()" class="btn btn-default customButton">Next</button>
+        <br>
+        <button type="button" (click)="refresh()">Refresh</button>
+        <!-- <button type="button" class="btn btn-success" (click)="print()">Print PDF</button> -->
+      </aside>
+    </div>
+  </div>
+</div>

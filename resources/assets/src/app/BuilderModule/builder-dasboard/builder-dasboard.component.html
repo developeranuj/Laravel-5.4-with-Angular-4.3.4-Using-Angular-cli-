@@ -1,0 +1,74 @@
+<!-- breadcrum -->
+<div class="breadcrum"><i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Dashboard</strong></div>
+<div class="row topBar">
+
+	<div class="col-sm-6 text-center mybtn1">
+		<button type="button" class="btn btn-default topButton" routerLink = "/builders/create/">Create new Builder</button>
+	</div>
+	<div class="col-sm-6 text-center mybtn1">
+		<button (click)="getpartnerform()" type="button" class="btn btn-primary topButton" >Propose new Partnership</button>
+	</div>
+
+</div>
+<div class="row content1">
+	<div class="col-sm-6">
+		<div class="panel panel-info">
+		  <div class="panel-heading"><h4 class="text-center">Recent Partnerships</h4></div>
+		  <div class="panel-body">
+		  	<div class="table-responsive">
+				<table class="table table-striped table-bordered">
+					<thead>
+					  <tr>
+					    <th>Partnership no.</th>
+					    <th>Builder name</th>
+					    <th>Trader name</th>
+					    <th>End date</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr *ngFor="let partnership of recentPartnerships">
+					    <td>{{partnership.id}}</td>
+					    <td>{{partnership.client?.client_name}}</td>
+					    <td>{{partnership.user?.name}}</td>
+					    <td>{{partnership.date_end}}</td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
+		  </div>
+		  <div class="panel-footer text-right">
+		  	<button type="button" class="btn btn-info" routerLink="partnership/">View All</button>
+		  </div>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="panel panel-danger">
+		  <div class="panel-heading"><h4 class="text-center">Partnerships expiring soon</h4></div>
+		  <div class="panel-body">
+		  	<div class="table-responsive">
+				<table class="table table-striped table-bordered">
+					<thead>
+					  <tr>
+					    <th>Partnership no.</th>
+					    <th>Builder name</th>
+					    <th>Trader name</th>
+					    <th>End date</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr *ngFor="let partnership of expiringPartnerships">
+					    <td>{{partnership.id}}</td>
+					    <td>{{partnership.client?.client_name}}</td>
+					    <td>{{partnership.user?.name}}</td>
+					    <td>{{partnership.date_end}}</td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
+		  </div>
+		  <div class="panel-footer text-right">
+		  	<button type="button" class="btn btn-danger" routerLink="partnership/">View All</button>
+		  </div>
+		</div>
+	</div>
+</div>

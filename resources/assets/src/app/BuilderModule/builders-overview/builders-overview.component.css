@@ -1,0 +1,18 @@
+.tab-content{
+	padding: 8px;
+	border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+li.list-group-item span {
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 17px;
+}
+.list-group li {
+    padding: 3px 10px;
+}
+.builder_logo{
+	height: 150px;
+	max-width: 250px;
+}

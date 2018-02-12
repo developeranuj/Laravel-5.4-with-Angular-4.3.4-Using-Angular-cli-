@@ -1,0 +1,46 @@
+<div class="form-area">
+	<div class="col-sm-8 form-content">
+		<div class="page">
+			<!-- content -->
+			<div style="width: fit-content;padding-top: 10px;margin: 0 auto; margin-bottom: 8px" *ngFor ="let image of step_2_images index as i">
+				<img class="img-responsive" style="width: auto; height: 150px" [src]="image"> 
+			</div>
+		</div>
+	</div>
+	<!-- sidebar -->
+	<div class="col-sm-4 form-sidebar">
+		<div id="step_2_sidebar">
+			<div class="page-header">
+				<h4>Step 2</h4>
+			</div>
+			<form *ngIf="!read_mode ; else readBlock" #step_2_form = "ngForm" (ngSubmit)="step_2_form.reset()">
+				<div class="button_position">
+					<button type="button" class="btn btn-primary" routerLink="../step-1/" (click)="step_2_form_submit(step_2_form.value)">Prev</button>
+					<button type="button" class="btn btn-primary" routerLink="../step-3/" (click)="step_2_form_submit(step_2_form.value)">Next</button>	
+				</div>
+				<div class="form-group image_upload">
+					<!-- insert images input -->
+					<label>Insert Images</label>
+					<input #fileInput type="file" name="step_2_images" (change)="step_2_upload($event)">
+					<div class="text-center image_upload-wpa">
+						<p><i class="fa fa-cloud-upload" aria-hidden="true"></i></p>
+						<button type="button" class="btn btn-primary mybtn" (click)="chooseImage()">Choose Image</button>
+					</div>
+				</div>
+				<!-- image control -->
+				<div class="image_panel">
+	                <ul class="list-group">
+	                    <li *ngFor ="let image of step_2_images index as i" class="list-group-item"
+	                    ><img style="width: 50px; height: 50px" [src]="image"> &nbsp; <i class="fa fa-times fa-2x" aria-hidden="true" (click)="delete_image(i)"></i></li>
+	                </ul>
+	            </div>		
+			</form>
+
+			<ng-template #readBlock>
+				<button type="button" class="btn btn-primary" routerLink="../step-1/">Prev</button>
+				<button type="button" class="btn btn-primary" routerLink="../step-3/">Next</button>	
+			</ng-template>
+
+		</div>
+	</div>
+</div>

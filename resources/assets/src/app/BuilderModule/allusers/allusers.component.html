@@ -1,0 +1,30 @@
+  <h2 class="text-center">Users</h2>
+
+  <div class="text-right nps">
+    <button class="btn btn-primary" routerLink = "../newUser">Create New User</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>User Email</th>
+          <th>User Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alluser of allusers index as i">
+          <td>{{alluser?.name}}</td>
+          <td>{{alluser?.email}}</td>
+          <td *ngIf="alluser.usermeta[0]?.role == 1">Admin</td>
+          <td *ngIf="alluser.usermeta[0]?.role == 2">Sales</td>
+          <td>
+            <button class="btn btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i></button> 
+            <button class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+            <button class="btn btn-danger"> <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+          </td>
+        </tr>      
+      </tbody>
+    </table>
+</div>

@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-sm-8 form-content"  #content>
+      <div class="page" id="content">
+        <!-- step-1-content  -->
+        <div class="pdf_content step_1" style="position: relative;height: 840px; padding: 0px;" id="step_1">
+
+          <!-- header -->
+
+          <div class="jumbotron topBar" style="background-color: #1e1e1e; text-align: right; border-radius: 0; margin-bottom: 0px; padding: 20px 10px; margin-top: 2px;">
+            <img src="images/logo.svg">
+          </div>
+          <hr class="bottomBar" style="margin: 0; background-color: #c5e74e;
+          padding: 8px;">
+
+          <!-- content -->
+
+          <div class="content">
+            <div class="head" style="display: table; min-height: 200px; margin-top: 20px;">
+              <div class="headings" style="display: table-cell; vertical-align: middle;">
+                <h2 class="step-head" style="font-size: 50px;">
+                      {{step_1_data.step_1_heading}}
+                   </h2>
+              </div>
+            </div>
+            <div class="text-left step-logo">
+              <img src="{{builderselected[0]?.client_logo}}" height="150px" width="150px" alt="builder_logo">
+            </div>
+            <div class="date">
+              <h2> {{date_from?.formatted}} to {{end_date?.formatted}}</h2>
+            </div>
+            <div class="partner">
+              <h2>
+                   {{step_1_data.step_1_supporting_partners_heading}}
+                </h2>
+            </div>
+            <div class="partner">
+              <p>{{step_1_data.step_1_supporting_partners}}</p>
+            </div>
+          </div>
+
+          <!-- footer -->
+
+          <div class="step-footer" style="position: absolute; bottom: 0px; left: 0;right: 0">
+            <hr class="bottomBar">
+            <div class="jumbotron footBar" style="background-color: #1e1e1e;margin-bottom: 0px; padding-top: 0;">
+              <div class="col-sm-offset-3 col-sm-6  text-center">
+                <h4 class="foot-titile" style="padding-top: 10px; color: #91ad32;">Flexibility - Passion - Partership</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-4 form-sidebar">
+    <!-- step-1 -sidebar -->
+    <div class="aside-section">
+      <aside>
+        <h4 class="text-left">Step-1</h4>
+        <form #step_1_form="ngForm" (ngSubmit)="nextstep();" ngNativeValidate>
+          <div class="form-group">
+            <label>Select builder</label>
+            <select class="form-control" [(ngModel)]="selectedClient" (change)="getclientdata(selectedClient)" name="client" required>
+              <option *ngFor="let client of clients" [ngValue]="client">{{client.client_name}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Date From</label>
+            <my-date-picker  name="date_from" (dateChanged)="limitDate($event)" [options]="date_from_options"
+                    [(ngModel)]="date_from" required></my-date-picker>
+          </div>
+          <div class="form-group">
+            <label>End Date</label>
+            <my-date-picker  name="end_date" [options]="end_options"
+                    [(ngModel)]="end_date" required></my-date-picker>
+          </div>
+          <button type="submit" class="btn btn-default customButton" style="background-color: #1e1e1e;color: #fff;">Next</button>
+
+        </form>
+      </aside>
+    </div>
+  </div>
+</div>

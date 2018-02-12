@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+.row{
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+}
+
+.breadcrum {
+    background: #c5e74e;
+    padding: 10px;
+	margin-bottom: 7px;
+}
+.breadcrum a {
+    color: #1e1e1e;
+}
+.page_content{
+	padding: 0px 20px;
+}
+
+.nps {
+    margin-bottom: 15px;
+    padding: 10px 20px;
+}
+/*button*/
+.mybtn{
+	background-color: #1e1e1e !important;
+	color: #fff !important;
+}
+/*for notification message at bottom*/
+.notify {
+    position: fixed;
+    bottom: 0;
+    padding: 3px 30px;
+    color: #fff;
+    z-index: 99999;
+    left: 0;
+    right: 0;
+    -webkit-transition: 2s, height 4s;
+}
+.notify-success{
+    background-color: #35a235;
+}
+.notify-warning{
+    background-color: #ea1111;
+}
+
+
+
+/*form content as a4*/
+.form-content{
+  background-color: #eae9e9cc;
+  padding: 10px;
+}
+.page {
+    background: #fff;
+    box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
+    outline: 0;
+    max-width: 595px;
+    min-height: 840px;
+    position: relative;
+    margin: 0 auto;
+}
+.inner-content{
+    padding: 5px 20px;
+}
+
+/*form builder*/
+/*.form-area{
+    min-height: 100vh;
+    background: #eae9e9cc;
+    float: left;
+    width: 100%;
+}*/
+.form-sidebar {
+    position: fixed !important;
+    overflow-y: scroll;
+    max-height: 100vh;
+    margin-top: 2px;
+    padding: 10px;
+    right: 0;
+    width: 28% !important;
+    bottom: 0;
+    top: 0;
+    top: 78px;
+}

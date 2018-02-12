@@ -1,0 +1,44 @@
+.detailsForm{
+	margin: 20px 0px;
+}
+.control-label {
+	font-size: 12px;
+}
+.delete_contact{
+	padding: 10px;
+}
+#preview_image{
+	height: 150px;
+	width: auto;
+}
+.form_buttons {
+    padding: 0 20px;
+}
+.address_helper{
+	font-size: 15px;
+}
+.well.display_contact a:hover {
+    cursor: pointer;
+}
+#builder_logo{
+	height: 150px;
+	width: 150px;
+}
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+label.control-label.col-sm-4 {
+    text-align: left;
+}
+.row.form_buttons {
+    margin-bottom: 10px;
+}
+i.fa {
+    font-size: 18px;
+}
+.form_button{
+	margin-top: 5px;
+	margin-right: 10px;
+}

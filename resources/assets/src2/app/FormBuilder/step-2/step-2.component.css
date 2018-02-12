@@ -1,0 +1,39 @@
+.form-area{
+    min-height: 100vh;
+}
+.topBar{
+	background-color: #1e1e1e;
+    text-align: right;
+    border-radius: 0;
+    margin-bottom: 0px;
+    max-height: 30vh;
+    padding: 20px 10px;
+}
+.bottomBar{
+    margin: 0;
+    background-color: #c5e74e;
+    padding: 8px;
+}
+
+
+.fa-times:hover{
+    cursor: pointer;
+}
+
+.image_upload input{
+    visibility: hidden;
+    position: absolute;
+    height: 80px;
+    right: 0;
+}
+.fa-cloud-upload{
+    font-size: 60px;
+    padding: 10px;
+    border: 1px solid #90ad2a;
+    border-radius: 50%;
+    color: #90ad2a;
+    
+}
+.image_panel{
+    margin-top: 10px;
+}

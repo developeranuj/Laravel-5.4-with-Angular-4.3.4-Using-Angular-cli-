@@ -1,0 +1,148 @@
+/* You can add global styles to this file, and also import other style files */
+.row{
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+}
+.breadcrum {
+    background: #c5e74e;
+    padding: 10px;
+	margin-bottom: 7px;
+}
+.breadcrum a {
+    color: #1e1e1e;
+}
+.page_content{
+	padding: 0px 20px;
+}
+
+.nps {
+    margin-bottom: 15px;
+    padding: 10px 0px;
+}
+/*button*/
+.mybtn{
+	background-color: #1e1e1e !important;
+	color: #fff !important;
+}
+/*for notification message at bottom*/
+.notify {
+    bottom: 0;
+    padding: 3px 30px;
+    color: #fff;
+    position: absolute;
+    z-index: 99999;
+    left: 0;
+    right: 0;
+    -webkit-transition: 2s, height 4s;
+}
+.notify-success{
+    background-color: #35a235;
+}
+.notify-warning{
+    background-color: #ea1111;
+}
+
+.ng-dirty .ng-invalid{
+    border-color: red;
+}
+.ng-valid {
+    border-color: green;
+}
+
+
+/*form content*/
+.form-content{
+    min-height: 100vh !important;
+  background-color: #eae9e9cc;
+  padding: 10px;
+}
+.page {
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
+    outline: 0;
+    max-width: 595px;
+    min-height: 842px;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.page ul {
+    list-style: none;
+    padding-left: 20px;
+}
+.inner-content{
+    padding: 5px 20px;
+}
+.form-sidebar {
+    position: fixed !important;
+    overflow-y: scroll;
+    max-height: 100vh;
+    margin-top: 2px;
+    padding: 10px;
+    right: 0;
+    width: 28% !important;
+    bottom: 0;
+    top: 0;
+    top: 78px;
+}
+/*navigation buttons in the side bar*/
+.button_position {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: #fff;
+    padding: 10px 0px;
+    z-index: 999999999;
+}
+form:last-child{
+    margin-bottom: 60px;
+}
+/*hiding editor extra options*/
+.cke_toolbox .cke_toolbar {
+    display: none;
+}
+.cke_toolbox .cke_toolbar:nth-child(6) {
+    display: block;
+}
+.cke_toolbox .cke_toolbar:nth-child(7) {
+    display: block;
+}
+
+/*form footer*/
+.step-footer {
+    position: absolute;
+    /* width: 100%; */
+    left: -20px;
+    right: -20px;
+    bottom: 32px;
+    text-align: center;
+    padding: 0 20px;
+}
+.bottomBar{
+    margin: 0;
+    background-color: #c5e74e;
+    padding: 4px;
+}
+
+
+/*loader color*/
+.la-ball-clip-rotate-multiple.la-3x div {
+    color: #b9e812 !important;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width: 767px){
+  .form-sidebar{
+    position: static !important;
+    overflow-y: none;
+    max-height: 100%;
+    margin-top: 2px;
+    padding: 10px;
+    width: 100% !important;
+  }
+  
+  
+}

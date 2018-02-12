@@ -1,0 +1,54 @@
+<!-- breadcrum -->
+ <div class="breadcrum"><i class="fa fa-wrench" aria-hidden="true"></i> <strong>Partnership Settings</strong>&nbsp; - &nbsp;  View Agreements</div>
+<!-- page content -->
+<div class="page_content">
+  <div class="nps">
+    <button class="btn btn-primary mybtn" [disabled]="no_drafts > 0"  (click)="clearForm(); revise_agreement() ">Revise agreement</button>
+  </div>
+  <table class="table table-striped table-responsive">
+    <thead>
+      <tr>
+        <th>S.No.</th>
+        <th>Partnership no.</th>
+        <th>Created By</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let form of form_data index as i">
+        <td>{{i + 1}}</td>
+        <td>{{form?.form_data?.form_id}}</td>
+        <td>{{form?.user?.name}}</td>
+        <td>
+          <!--form status->
+                0 - Published
+                1 - Draft 
+                2 - Revised
+          -->
+          <p *ngIf="!form?.form_data?.status">(Published)</p>
+          <p *ngIf="form?.form_data?.status==1 || form?.form_data?.default_draft ==1">(Draft)</p>
+          <p *ngIf="form?.form_data?.status==2">(Revised)</p>
+        </td>
+        <td>
+          <!-- info button -->
+          <button *ngIf="form?.form_data?.status !=1" (click)="read_form()" class="btn btn-primary" title="View" [routerLink]="['step-1/', form?.form_data?.form_id]">
+            <i class="fa fa-info" aria-hidden="true"></i>
+          </button>
+          <!-- edit button -->
+          <button *ngIf="form?.form_data?.status ==1 || form?.form_data?.default_draft ==1" class="btn btn-success" title="Edit" [routerLink]="['step-1/', form?.form_data?.form_id]">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+          <!-- publish button -->
+          <button [disabled]="form.form_data?.status !=1" class="btn btn-warning" title="Publish" (click)="publish(form?.form_data?.form_id)">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          </button>
+          <!-- delete button -->
+          <button *ngIf="form?.form_data?.default_draft !=1 && form?.form_data?.status ==1" class="btn btn-danger" (click)="delete_form(form?.form_data,i)">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>      
+    </tbody>
+  </table>
+</div>

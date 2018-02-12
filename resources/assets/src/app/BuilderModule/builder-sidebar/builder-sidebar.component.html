@@ -1,0 +1,69 @@
+ <div class="row head">
+  <div class="col-sm-2 col-xs-5 text-left logo">
+      <a routerLink="/"> <img  clas="img-responsive" src="images/logo.svg" alt="logo"/></a>
+  </div>
+  <div class="text-left col-sm-1 col-xs-2">
+    <i class="fa fa-bars toggle-btn" aria-hidden="true" (click)="test()"></i>
+  </div>
+  <div class="col-sm-3 col-sm-offset-6 col-xs-5 lgbtn">
+      <div class="text-center">
+      <p id="username"><i class="fa fa-user-circle" aria-hidden="true"></i>  {{currentUser?.name}}</p>
+      <p (click)="logout()" id="btn_logout"><i class="fa fa-power-off" aria-hidden="true"></i>  Logout</p>
+    </div>
+  </div>
+  </div>
+  <div class="sidebar" [ngClass]="{'sidenav':showhidenav}">
+   <!--  sidebar -->
+
+
+ <ul class="mainmenu">
+  <li >
+    <a  (click)="window_width < 769 ? test():false" routerLinkActive="active current" [routerLinkActiveOptions]="{ exact: true }" routerLink="/"><i class="fa fa-home" aria-hidden="true" ></i> Dashboard </a>
+  </li>
+
+  <li >
+    <a (click)="rotation()"  href="#submenu1" data-toggle="collapse">
+      <i class="fa fa-users" aria-hidden="true"></i>
+      Patnership
+      <span class="text-right"><i class="fa fa-angle-right pull-right" [ngClass]="{'fa-rotate-90':rotate}" aria-hidden="true"></i></span></a>
+     <ul class="collapse submenu" id="submenu1">
+      <li><a (click)="window_width < 769 ? test():false ; getpartnerform()" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Propose New</a></li>
+      <li><a (click)="window_width < 769 ? test():false" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/partnership"> View All</a></li>
+    </ul>
+  </li>
+  <li >
+    <a (click)="rotation1()" href="#submenu2" data-toggle="collapse">
+      <i class="fa fa-user-plus" aria-hidden="true"></i>
+      Builders
+      <span class="text-right"><i [ngClass]="{'fa-rotate-90':rotate1}" class="fa fa-angle-right pull-right" aria-hidden="true"></i> </span></a>
+    <ul class="collapse submenu" id="submenu2">
+      <li><a (click)="window_width < 769 ? test():false" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink = "/builders/create/">Create New</a></li>
+      <li><a (click)="window_width < 769 ? test():false" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/builders"> View All</a></li>
+    </ul>
+  </li>
+  <li >
+    <a (click)="rotation2()" href="#submenu3" data-toggle="collapse">
+      <i class="fa fa-user-plus" aria-hidden="true"></i>
+        User Tools
+       <span class="text-right"><i [ngClass]="{'fa-rotate-90':rotate2}" class="fa fa-angle-right pull-right" aria-hidden="true"></i></span></a>
+    <ul class="collapse  submenu" id="submenu3">
+      <li ><a>About Me</a></li>
+      <li ><a (click)="window_width < 769 ? test():false" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink= '/changepassword/'>Change Password</a></li>
+    </ul>
+  </li>
+  <li *ngIf="currentUser?.usermeta[0].role == 1">
+    <a  href="admin">
+      <i class="fa fa-user-plus" aria-hidden="true"></i>
+      Admin Tools
+    </a>
+  </li>
+  <li>
+    <a><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+  </li>
+</ul>
+
+    </div>
+      <div class="main-content" [ngClass]="{'content':showhidenav}" >
+        <!-- Main content -->
+         <router-outlet></router-outlet>
+  </div>

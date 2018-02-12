@@ -1,0 +1,20 @@
+
+/*.header{
+	display: inline-block;
+}*/
+.header p{
+	margin: 10px 0;
+}
+.aside-section {
+	min-height: 100vh;
+	padding-top: 30px;
+    background: #f5f4f4;
+}
+
+form.builder-select {
+    margin: 55px 5px;
+}
+
+select {
+    margin: 13px 0 25px;
+}

@@ -1,0 +1,406 @@
+<!-- breadcrum -->
+<div class="breadcrum"><a routerLink="../"><i class="fa fa-user-plus" aria-hidden="true"></i> <strong>Builders</strong></a>&nbsp; - &nbsp;  Create New</div>
+<div class="page_content nps">
+    <ul class="nav nav-tabs" id="tab_navs">
+        <li class="active"><a href="#details" data-toggle="tab">Details</a></li>
+        <li><a href="#address" data-toggle="tab">Address</a></li>
+        <li><a href="#contacts" data-toggle="tab">Contacts</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <!-- builder's button -->
+        <div class="pull-right form_button">
+            <!-- create builder button -->
+            <button *ngIf="!update_button" type="submit" class="btn btn-success mybtn"
+            (click)="createBuilder(details_form.value,address_form.value)"
+
+            [disabled]="!details_form.valid || !address_form.valid">
+                Create Builder
+            </button>
+
+            <!-- update button -->
+            <button *ngIf="update_button" type="button" class="btn btn-success mybtn"
+            (click)="update_builder(details_form.value,address_form.value)"
+            [disabled]="!details_form.valid || !address_form.valid">
+
+            Update Builder
+            </button>
+        </div>
+        <!-- details tab -->
+        <div id="details" class="tab-pane fade in active">
+            <div class="row">
+
+            </div>
+            <!-- details form -->
+            <form  [formGroup]="details_form" (ngSubmit)="details_form.valid"  class="form-horizontal">
+                <div class="row detailsForm">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="client_code">* Customer Code</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="client_code" name="client_code"  formControlName ="client_code" >
+                                    <div class="text-danger" *ngIf="!details_form.controls['client_code'].valid && details_form.controls['client_code'].touched">Client code is required</div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="client_name">* Customer Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="client_name" name="client_name"  formControlName ="client_name">
+                                     <div class="text-danger" *ngIf="!details_form.controls['client_name'].valid && details_form.controls['client_name'].touched">client name is required</div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="company_name">* Company Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="company_name" name="company_name"  formControlName ="company_name">
+                                     <div class="text-danger" *ngIf="!details_form.controls['company_name'].valid && details_form.controls['company_name'].touched">company name is required</div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="default_delivery_address">* Default Delivery Address</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="default_delivery_address" name="default_delivery_address" formControlName="default_delivery_address">
+
+                                        available_address
+
+                                        <option *ngFor="let address of available_address index as i"
+                                            [ngValue]="address">{{address}}
+                                        </option>
+                                    </select>
+                                    <div class="text-danger" *ngIf="!details_form.controls['default_delivery_address'].valid && details_form.controls['default_delivery_address'].touched">Default address is required</div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="sales_person">* Salesperson</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="sales_person" name="sales_person" formControlName="sales_person">
+                                        <option *ngFor="let contact of contact_data index as i"
+                                            [ngValue]="contact.first_name +' '+ contact.last_name">{{contact.first_name}} {{contact.last_name}}
+                                        </option>
+                                    </select>
+                                    <div class="text-danger" *ngIf="!details_form.controls['sales_person'].valid && details_form.controls['sales_person'].touched">Sales Person is required</div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="client_notes">* Notes</label>
+                                <div class="col-sm-8">
+                                    <textarea class="form-control" rows="3" id="client_notes" name="client_notes" formControlName="client_notes"></textarea>
+                                    <div class="text-danger" *ngIf="!details_form.controls['client_notes'].valid && details_form.controls['client_notes'].touched">client Note is required</div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="acn">* ACN</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="acn" name="acn"  formControlName ="acn">
+                                    <div class="text-danger" *ngIf="!details_form.controls['acn'].valid && details_form.controls['acn'].touched">client ACN is required</div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="client_logo">* Insert logo</label>
+                                <div class="col-sm-8">
+                                    <input type="file" (change)="client_logo_upload($event)">
+                                    <input type="hidden" name="client_logo" formControlName="client_logo">
+                                    <div class="text-danger" *ngIf="!details_form.controls['client_logo'].valid && details_form.controls['client_logo'].touched">client Logo is required</div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="client_logo"></label>
+                                <div class="col-sm-8">
+                                    <img id="builder_logo" [src]="client_logo_preview || 'images/profile.jpg'">
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- adddress tab -->
+        <div id="address" class="tab-pane fade" >
+            <div class="row">
+
+            </div>
+            <form  [formGroup]="address_form"  class="form-horizontal">
+                <div class="row detailsForm">
+                    <div class="col-sm-5 ">
+                        <div class="row">
+                            <h3>Postal Address</h3>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="postal_address_name">* Street Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="postal_address_name" name="postal_address_name" formControlName="postal_address_name">
+                                    <div class="text-danger" *ngIf="!address_form.controls['postal_address_name'].valid && address_form.controls['postal_address_name'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="postal_address_line_1">Address Line 1</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="postal_address_line_1" name="postal_address_line_1" formControlName="postal_address_line_1">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="postal_address_line_2">Address line 2</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="postal_address_line_2" name="postal_address_line_2" formControlName="postal_address_line_2">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="postal_suburb">* Suburb</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="postal_suburb" name="postal_suburb" formControlName="postal_suburb">
+                                     <div class="text-danger" *ngIf="!address_form.controls['postal_suburb'].valid && address_form.controls['postal_suburb'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="postal_town_city">* Town/City</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="postal_town_city" name="postal_town_city" formControlName="postal_town_city">
+                                     <div class="text-danger" *ngIf="!address_form.controls['postal_town_city'].valid && address_form.controls['postal_town_city'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="postal_state_region">* State/Region</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="postal_state_region" name="postal_state_region" formControlName="postal_state_region">
+                                     <div class="text-danger" *ngIf="!address_form.controls['postal_state_region'].valid && address_form.controls['postal_state_region'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="postal_postal_code">* Postal Code</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="postal_postal_code" name="postal_postal_code" formControlName="postal_postal_code">
+                                     <div class="text-danger" *ngIf="!address_form.controls['postal_postal_code'].valid && address_form.controls['postal_postal_code'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="postal_country">* Country</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="postal_country" name="postal_country" formControlName="postal_country">
+                                        <option>Australia</option>
+                                    </select>
+                                     <div class="text-danger" *ngIf="!address_form.controls['postal_country'].valid && address_form.controls['postal_country'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-2">
+                        <div class="row">
+
+                            <h3>Physical Address<input type="checkbox" name="same_as_postal_address" formControlName="same_as_postal_address" (change)="same_as_address(address_form.value)"><span class="text-muted" class="address_helper">Same as Postal Address</span></h3>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="physical_address_name">* Street Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="physical_address_name" name="physical_address_name" formControlName="physical_address_name">
+                                     <div class="text-danger" *ngIf="!address_form.controls['physical_address_name'].valid && address_form.controls['physical_address_name'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="physical_address_line_1">Address Line 1</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="physical_address_line_1" name="physical_address_line_1" formControlName="physical_address_line_1">
+                                     <div class="text-danger" *ngIf="!address_form.controls['physical_address_line_1'].valid && address_form.controls['physical_address_line_1'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="physical_address_line_2">Address line 2</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="physical_address_line_2" name="physical_address_line_2" formControlName="physical_address_line_2">
+                                     <div class="text-danger" *ngIf="!address_form.controls['physical_address_line_2'].valid && address_form.controls['physical_address_line_2'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="physical_suburb">* Suburb</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="physical_suburb" name="physical_suburb" formControlName="physical_suburb">
+                                     <div class="text-danger" *ngIf="!address_form.controls['physical_suburb'].valid && address_form.controls['physical_suburb'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="physical_town_city">* Town/City</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="physical_town_city" name="physical_town_city" formControlName="physical_town_city">
+                                     <div class="text-danger" *ngIf="!address_form.controls['physical_town_city'].valid && address_form.controls['physical_town_city'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="physical_state_region">* State/Region</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="physical_state_region" name="physical_state_region" formControlName="physical_state_region">
+                                     <div class="text-danger" *ngIf="!address_form.controls['physical_state_region'].valid && address_form.controls['physical_state_region'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="physical_postal_code">* Postal Code</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="physical_postal_code" name="physical_postal_code" formControlName="physical_postal_code">
+                                     <div class="text-danger" *ngIf="!address_form.controls['physical_postal_code'].valid && address_form.controls['physical_postal_code'].touched">This Field is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="physical_country">* Country</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="physical_country" name="physical_country" formControlName="physical_country">
+                                        <option>Australia</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-default" (click)="save_address()" [disabled]="!address_form.valid">Save</button>
+            </form>
+        </div>
+        <!-- contacts tab -->
+        <div id="contacts" class="tab-pane fade" >
+            <div class="row">
+
+
+            </div>
+            <form  [formGroup]="contacts_form" (ngSubmit)="contacts_form.valid" class="form-horizontal">
+                <!-- contact form -->
+                <div class="row detailsForm" id="contact_form">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="first_name">* First Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="first_name" name="first_name" formControlName="first_name">
+                                <div class="text-danger" *ngIf="!contacts_form.controls['first_name'].valid && contacts_form.controls['first_name'].touched">This Field is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="last_name">* Last Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="last_name" name="last_name" formControlName="last_name">
+                                <div class="text-danger" *ngIf="!contacts_form.controls['last_name'].valid && contacts_form.controls['last_name'].touched">This Field is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="email">* Email</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="email" name="email" formControlName="email">
+                                <div class="text-danger" *ngIf="!contacts_form.controls['email'].valid && contacts_form.controls['email'].touched">This Field is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="website">Website</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="website" name="website" formControlName="website">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="toll_free_no">Toll Free No.</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="toll_free_no" name="toll_free_no" formControlName="toll_free_no">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="phone">Phone</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="phone" name="phone" formControlName="phone">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="fax">Fax</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="fax" name="fax" formControlName="fax">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="mobile">Mobile</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="mobile" name="mobile" formControlName="mobile">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="ddi">DDI</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="ddi" name="ddi" formControlName="ddi">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="invoicing">Invoicing</label>
+                            <div class="col-sm-8">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" id="invoicing" name="invoicing* " value="" formControlName="invoicing"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="shipping">Shipping</label>
+                            <div class="col-sm-8">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" id="shipping" name="shipping* " value="" formControlName="shipping"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="!already_primary; else other">
+                            <label class="control-label col-sm-4" for="primary_contact">Primary Contact</label>
+                            <div class="col-sm-8">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" id="primary_contact" name="primary_contact* " value="" formControlName="primary_contact"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <ng-template #other>(Already have primary contact)</ng-template>
+                    </div>
+                </div>
+
+                <div class="row form_buttons">
+                    <!-- contacts button -->
+                    <div class="pull-left">
+                        <button *ngIf="contact_update_button" type="button" class="btn btn-default" (click)="update_contact(contacts_form.value);contacts_form.reset()">Update</button>
+
+                        <button type="submit" class="btn btn-success" (click)="add_contact(contacts_form.value);contacts_form.reset()" [disabled]="!contacts_form.valid">Add Contact</button>
+                    </div>
+                </div>
+                <div class="well display_contact" *ngFor="let contact of contact_data index as i">
+                    <h4>
+                        New Contact
+                        <a (click)="edit_contact(i)">Edit contact</a>&nbsp;&nbsp;
+                        <a (click)="delete_contact(i)" >Delete</a>&nbsp;&nbsp;
+                        <strong *ngIf="contact.primary_contact ==1">(PRIMARY)</strong>
+                    </h4>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>First Name: <span>{{contact.first_name}}</span></p>
+                            <p>Last Name: <span>{{contact.last_name}}</span></p>
+                            <p>Email: <span>{{contact.email}}</span></p>
+                            <p>Website: <span>{{contact.website}}</span></p>
+                            <p>Toll Free No.: <span>{{contact.toll_free_no}}</span></p>
+                            <p>Phone: <span>{{contact.phone}}</span></p>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <p>Fax: <span>{{contact.fax}}</span></p>
+                            <p>Mobile: <span>{{contact.mobile}}</span></p>
+                            <p>DDI: <span>{{contact.ddi}}</span></p>
+                            <p>
+                                Invoicing:
+                                <span *ngIf="contact?.invoicing ==1">Yes</span>
+                                <span *ngIf="contact?.invoicing ==0">No</span>
+                            </p>
+                            <p>
+                                Shipping:
+                                <span *ngIf="contact?.invoicing ==1">Yes</span>
+                                <span *ngIf="contact?.invoicing ==0">No</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

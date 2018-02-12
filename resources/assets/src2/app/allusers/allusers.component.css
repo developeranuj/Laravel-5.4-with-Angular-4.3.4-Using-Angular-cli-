@@ -1,0 +1,9 @@
+.sorting_functions{
+	display: inline-block;
+    text-align: right;
+    float: right;
+}
+.search_input{
+	width: 200px;
+}
+

@@ -1,0 +1,74 @@
+<div class="patnership">
+            <h2 class="text-center">Create A New Patnership</h2>
+            <form (ngSubmit)="onSubmit(patnerform.value)" #patnerform="ngForm">
+                <div class="form-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                        <label>Executive Contact First Name</label>
+                        <input type="text" class="form-control" id="" placeholder="Enter Executive Contact First Name" name="fname" ngModel required>
+                    </div>
+                    <div class="form-group">
+                        <label>Executive Contact Last Name</label>
+                        <input type="text" class="form-control" id="" placeholder="Enter Executive Contact Surname" name="lname" ngModel required>
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Mobile Number</label>
+                        <input type="number" class="form-control" id="" placeholder="Enter Mobile Number" ngModel name="mobile" required>
+                    </div>
+                     <div class="form-group">
+                        <label>Enter Office Number</label>
+                        <input type="number" class="form-control" id="" placeholder="Enter Office Number" ngModel name="officeno"  required>
+                    </div>
+                    <div class="form-group">
+                        <label>Fax</label>
+                        <input type="number" class="form-control" id="" placeholder="Enter fax" ngModel name="fax" required>
+                    </div>
+                      <div class="form-group">
+                        <label>Enter Email</label>
+                        <input type="email" class="form-control" id="" placeholder="Enter Email" ngModel name="email" required>
+                    </div>
+                   
+                    
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Business Name</label>
+                        <input type="text" class="form-control" id="" placeholder="Enter Business Name" ngModel name="bname" required>
+                    </div>
+                      <div class="form-group">
+                        <label>Customer Number</label>
+                        <input type="number" class="form-control" id="" placeholder="Enter Customer Number" ngModel name="cnumber" required>
+                    </div>
+
+                   <div class="form-group">
+                        <label>Organisation Type</label>
+                        <select class="form-control" ngModel name="otype"  required>
+                            <option>Organisation1</option>
+                            <option>Organisation1</option>     
+                       </select>
+                    </div> 
+                    <div class="form-group">
+                        <label>ABN</label>
+                        <input type="text" class="form-control" id="" placeholder="Enter text" ngModel name="abn" required>
+                    </div>
+                   <div class="form-group">
+                        <label>Select Patnership Type</label>
+                       <select class="form-control" ngModel name="ptype" required>
+                            <option>Patnership1</option>
+                            <option>Patnership2</option>
+                            <option>Patnership3</option>
+                            <option>Patnership3</option>
+                            <option>Patnership4</option>
+                       </select>
+                    </div>
+                    
+                </div>
+               </div>
+               <div class="form-group">
+                   <button type="submit" class="btn btn-secondry">Update</button>
+               </div>
+           </div>
+            </form>    
+    </div>

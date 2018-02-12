@@ -1,0 +1,208 @@
+<div class="form-area">
+	<div class="col-sm-8 form-content">
+		<div class="page">
+			<!-- header -->
+			<div class="jumbotron topBar">
+				<img src="images/logo.svg">
+			</div>
+			<hr class="bottomBar">
+			<!-- content div -->
+			<div class="step_10_questions">
+				<h3>Proposal</h3>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_1}}</h4>
+				<p [innerHtml]="step_10_question_1_content"></p>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_2}}</h4>
+				<p [innerHtml]="step_10_question_2_content"></p>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_3}}</h4>
+				<p [innerHtml]="step_10_question_3_content"></p>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_4}}</h4>
+				<p [innerHtml]="step_10_question_4_content"></p>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_5}}</h4>
+				<p [innerHtml]="step_10_question_5_content"></p>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_6}}</h4>
+				<p [innerHtml]="step_10_question_6_content"></p>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_7}}</h4>
+				<p [innerHtml]="step_10_question_7_content"></p>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_8}}</h4>
+				<p [innerHtml]="step_10_question_8_content"></p>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_9}}</h4>
+				<p [innerHtml]="step_10_question_9_content"></p>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_10}}</h4>
+				<p [innerHtml]="step_10_question_10_content"></p>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_11}}</h4>
+				<p [innerHtml]="step_10_question_11_content"></p>
+			</div>
+			<div class="step_10_questions">
+				<h4>{{step_10_question_12}}</h4>
+				<p [innerHtml]="step_10_question_12_content"></p>
+			</div>
+			<div class="step-footer">
+	          <hr class="bottomBar">
+	        </div>
+		</div>
+	</div>
+	<!-- sidebar -->
+	<div class="col-sm-4 form-sidebar">
+		<div id="step_10_sidebar">
+			<div class="page-header">
+				<h4>Step 10</h4>
+			</div>
+			
+			<form *ngIf="!read_mode ; else readBlock" #step_10_form = "ngForm" (ngSubmit)="step_10_form.reset()">
+				<div class="button_position">
+					<button type="button" class="btn btn-primary" routerLink="../step-9/" (click)="step_10_form_submit(step_10_form.value)">Prev</button>	
+					<button type="button" class="btn btn-primary" routerLink="../step-11/" (click)="step_10_form_submit(step_10_form.value)">Next</button>
+				</div>
+				<div class="form-group">
+					<!-- question-1 -->
+					<label for="step_10_question_1">Question-1</label>
+					<input class="form-control" type="text" name="step_10_question_1" id="step_10_question_1" [(ngModel)]="step_10_question_1">
+
+					<!-- question-1 content -->
+					<label for="step_10_question_1_content" class="form">Question-1 content</label>
+					<ck-editor  name="step_10_question_1_content" [(ngModel)]="step_10_question_1_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+					<span class="text-muted">Type "@@from@@" and "@@to@@" to insert user input date range</span><br>
+<!-- end of question-1 -->
+					<!-- question-2 -->
+					<label for="step_10_question_2">Question-2</label>
+					<input class="form-control" type="text" name="step_10_question_2" id="step_10_question_2" [(ngModel)]="step_10_question_2">
+
+					<!-- question-2 content -->
+					<label for="step_10_question_2_content" class="form">Question-2 content</label>
+					<ck-editor name="step_10_question_2_content" [(ngModel)]="step_10_question_2_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+					<span class="text-muted">Type "@@@builder_name@@@" to insert builder name</span><br>
+<!-- end of question-2 -->	
+				<!-- question-3 -->
+					<label for="step_10_question_3">Question-3</label>
+					<input class="form-control" type="text" name="step_10_question_3" id="step_10_question_3" [(ngModel)]="step_10_question_3">
+
+					<!-- question-2 content -->
+					<label for="step_10_question_3_content" class="form">Question-3 content</label>
+					<ck-editor name="step_10_question_3_content" [(ngModel)]="step_10_question_3_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+					<span class="text-muted">Type "@@@builder_name@@@" to insert builder name</span><br>
+<!-- end of question-3 -->	
+				<!-- question-4 -->
+					<label for="step_10_question4">Question-4</label>
+					<input class="form-control" type="text" name="step_10_question_4" id="step_10_question_4" [(ngModel)]="step_10_question_4">
+
+					<!-- question-4 content -->
+					<label for="step_10_question_4_content" class="form">Question-4 content</label>
+					<ck-editor name="step_10_question_4_content" [(ngModel)]="step_10_question_4_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+					<span class="text-muted">Type @@@house_amount@@@ and @@@units_amount@@@ to insert house amount and units amount.</span><br>
+<!-- end of question-4 -->	
+				<!-- question-5 -->
+					<label for="step_10_question_5">Question-5</label>
+					<input class="form-control" type="text" name="step_10_question_5" id="step_10_question_5" [(ngModel)]="step_10_question_5">
+
+					<!-- question-5 content -->
+					<label for="step_10_question_5_content" class="form">Question-5 content</label>
+					<ck-editor name="step_10_question_5_content" [(ngModel)]="step_10_question_5_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+					<span class="text-muted">Type "@@@number_of_homes@@@" "@@@support_product_amount@@@"  "@@@support_period@@@" "@@@builder_name@@@" to insert builder name and amount.</span><br>
+<!-- end of question-5 -->	
+				<!-- question-6 -->
+					<label for="step_10_question_6">Question-6</label>
+					<input class="form-control" type="text" name="step_10_question_6" id="step_10_question_6" [(ngModel)]="step_10_question_6">
+
+					<!-- question-6 content -->
+					<label for="step_10_question_6_content" class="form">Question-6 content</label>
+					<ck-editor name="step_10_question_6_content" [(ngModel)]="step_10_question_6_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+					<span class="text-muted">Type "@@@builder_name@@@", "@@@support_cash_amount@@@" "@@@number_of_homes@@@" and "@@@support_period@@@" to insert builder name, amount and year.</span><br>
+<!-- end of question-6 -->	
+				<!-- question-7 -->
+					<label for="step_10_question_7">Question-7</label>
+					<input class="form-control" type="text" name="step_10_question_7" id="step_10_question_7" [(ngModel)]="step_10_question_7">
+
+					<!-- question-7 content -->
+					<label for="step_10_question_7_content" class="form">Question-7 content</label>
+					<ck-editor name="step_10_question_7_content" [(ngModel)]="step_10_question_7_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+					<span class="text-muted">Type "@@@marketing_material_amount@@@" @@@support_period@@@ to insert amount.</span><br>
+<!-- end of question-7 -->	
+				<!-- question-8 -->
+					<label for="step_10_question_8">Question-8</label>
+					<input class="form-control" type="text" name="step_10_question_8" id="step_10_question_8" [(ngModel)]="step_10_question_8">
+
+					<!-- question-8 content -->
+					<label for="step_10_question_8_content" class="form">Question-8 content</label>
+					<ck-editor name="step_10_question_8_content" [(ngModel)]="step_10_question_8_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+					<span class="text-muted">Type "@@@marketing_fund_amount@@@" @@@support_period@@@
+ to insert amount.</span><br>
+<!-- end of question-8 -->	
+				<!-- question-9 -->
+					<label for="step_10_question_9">Question-9</label>
+					<input class="form-control" type="text" name="step_10_question_9" id="step_10_question_9" [(ngModel)]="step_10_question_9">
+
+					<!-- question-9 content -->
+					<label for="step_10_question_9_content" class="form">Question-9 content</label>
+					<ck-editor name="step_10_question_9_content" [(ngModel)]="step_10_question_9_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+					<span class="text-muted">Type "@@@builder_name@@@" and @@@number_of_opportunities@@@ to insert builder name and promotional opportunities.</span><br>
+<!-- end of question-9 -->	
+				<!-- question-10 -->
+					<label for="step_10_question_10">Question-10</label>
+					<input class="form-control" type="text" name="step_10_question_10" id="step_10_question_10" [(ngModel)]="step_10_question_10">
+
+					<!-- question-10 content -->
+					<label for="step_10_question_10_content" class="form">Question-10 content</label>
+					<ck-editor name="step_10_question_10_content" [(ngModel)]="step_10_question_10_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+					<br>
+<!-- end of question-10 -->	
+				<!-- question-11 -->
+					<label for="step_10_question_11">Question-11</label>
+					<input class="form-control" type="text" name="step_10_question_11" id="step_10_question_11" [(ngModel)]="step_10_question_11">
+
+					<!-- question-11 content -->
+					<label for="step_10_question_11_content" class="form">Question-11 content</label>
+					<ck-editor name="step_10_question_11_content" [(ngModel)]="step_10_question_11_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+					<br>
+<!-- end of question-11 -->
+					<!-- question-12 -->
+					<label for="step_10_question_12">Question-12</label>
+					<input class="form-control" type="text" name="step_10_question_12" id="step_10_question_12" [(ngModel)]="step_10_question_12">
+
+					<!-- question-6 content -->
+					<label for="step_10_question_12_content" class="form">Question-12 content</label>
+					<ck-editor name="step_10_question_12_content" [(ngModel)]="step_10_question_12_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+
+<!-- end of question-12 -->	
+				</div>
+				
+			</form>
+			<ng-template #readBlock>
+				<button type="button" class="btn btn-primary" routerLink="../step-9/">Prev</button>	
+				<button type="button" class="btn btn-primary" routerLink="../step-11/">Next</button>
+			</ng-template>
+		</div>
+	</div>
+</div>

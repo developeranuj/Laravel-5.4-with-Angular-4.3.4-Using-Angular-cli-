@@ -1,0 +1,13 @@
+
+
+<div class="wrapper">
+<app-sidebar></app-sidebar>
+  </div>
+
+<!-- notification -->
+<div class="notify" 
+  *ngIf="service?.notification?.notification_status"  
+  [ngClass]="{'notify-success': service?.notification?.action_status,
+              'notify-warning': !service?.notification?.action_status}">
+  <strong>{{service?.notification?.notification_message}}</strong>
+</div>

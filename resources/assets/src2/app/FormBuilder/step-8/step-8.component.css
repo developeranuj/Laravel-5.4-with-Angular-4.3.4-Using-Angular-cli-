@@ -1,0 +1,38 @@
+.form-area{
+    min-height: 100vh;
+}
+.topBar {
+    background-color: #1e1e1e;
+    text-align: right;
+    border-radius: 0;
+    margin-bottom: 0px;
+    padding: 20px 40px 5px 40px;
+    margin-top: 2px;
+}
+.topBar img{
+        max-height: 45px;
+}
+.bottomBar{
+    margin: 0;
+    background-color: #c5e74e;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+#footer{
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+}
+.fa-times:hover{
+    cursor: pointer;
+}
+
+.step_8_images{
+    margin: 0 auto; 
+    margin-bottom: 40px;
+}
+.step_8_images img{
+    height: 150px;
+    width: 100%; 
+}

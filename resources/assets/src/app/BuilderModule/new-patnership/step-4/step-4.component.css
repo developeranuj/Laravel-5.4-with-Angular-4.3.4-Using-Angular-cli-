@@ -1,0 +1,101 @@
+
+form.builder-select {
+    margin: 55px 5px;
+}
+
+select {
+    margin: 13px 0 25px;
+}
+img.logo_image {
+    max-height:45px;
+}
+/*
+.head{
+        display: table;
+    min-height: 120px;
+    margin-top: 20px;
+}
+.headings {
+    display: table-cell;
+    vertical-align: middle;
+}*/
+.step-head{
+   font-size: 40px;
+}
+.topBar {
+    background-color: #1e1e1e;
+    text-align: right;
+    border-radius: 0;
+    margin-bottom: 0px;
+    padding: 20px 40px 5px 40px;
+    margin-top: 2px;
+   
+}
+
+.footBar {
+    background-color: #1e1e1e;
+    border-radius: 0;
+    margin-bottom: 0px;
+    padding-top: 0;
+}
+
+.bottomBar {
+    margin: 0;
+    background-color: #c5e74e;
+    padding: 5px;
+}
+
+.customButton {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+.foot-titile {
+    padding-top: 10px;
+}
+.step-head,
+.foot-titile {
+    color: #91ad32;
+}
+.step_4_image img{
+    width: 80%;
+    height: 250px;
+   
+}
+.step_4_image{
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    left: 30px;
+    text-align: center;
+}
+
+.pdf_contact{
+    position: relative;
+    min-height: 842px;
+}
+
+.step-footer {
+   position: absolute;
+   bottom: 30px;
+   width: 100%;
+} 
+
+.content {
+       padding-left: 45px;
+    padding-right: 45px;
+}
+
+.step-logo,
+.date {
+    padding: 15px 0;
+    margin-bottom: 15px;
+}
+
+.sidebar {
+    background-color: #d8d6d6;
+}
+.main-content,
+.sidebar
+{
+    min-height: 842px;
+}

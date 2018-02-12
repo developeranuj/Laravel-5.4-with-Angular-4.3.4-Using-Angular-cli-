@@ -1,0 +1,66 @@
+<div class="form-area">
+	<div class="col-sm-8 form-content">
+		<div class="page">
+			<!-- header -->
+			<div class="jumbotron topBar">
+				<img src="images/logo.svg">
+			</div>
+			<hr class="bottomBar">
+			<!-- content div -->
+			<div class="inner-content" id="step-9">
+				<div class="step_9_headings">
+					<h3>Product Road Map</h3>
+					<div [innerHtml]="step_9_heading_1_content"></div>
+				</div>
+				<div class="step_9_headings">
+					<h3>Display Boards</h3>
+					<div [innerHtml]="step_9_heading_2_content"></div>
+				</div>
+				<div  style="margin-bottom: 8px" *ngFor ="let image of step_9_images index as i">
+					<img style="width: auto; height: 150px" [src]="image"> 
+				</div>
+			</div>
+			<div class="step-footer">
+	          <hr class="bottomBar">
+	        </div>
+		</div>
+	</div>
+	<!-- sidebar -->
+	<div class="col-sm-4 form-sidebar">
+		<div id="step_9_sidebar">
+			<div class="page-header">
+				<h4>Step 9</h4>
+			</div>
+			<form *ngIf="!read_mode ; else readBlock" #step_9_form = "ngForm" (ngSubmit)="step_9_form.reset()">
+				<div class="button_position">
+					<button type="button" class="btn btn-primary" routerLink="../step-8/" (click)="step_9_form_submit(step_9_form.value)">Prev</button>
+					<button type="button" class="btn btn-primary" routerLink="../step-10/" (click)="step_9_form_submit(step_9_form.value)">Next</button>
+				</div>
+				<!-- product road map -->
+				<div class="form-group">
+					<label>Product Road Map</label>
+					<ck-editor name="step_9_heading_1_content" [(ngModel)]="step_9_heading_1_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+				</div>
+				<!-- display boards -->
+				<div class="form-group">
+					<label>Display Boards</label>
+					<ck-editor name="step_9_heading_2_content" [(ngModel)]="step_9_heading_2_content" skin="moono-lisa" lang="en" [fullPage]="false"></ck-editor>
+				</div>
+				<div class="form-group">
+					<label>Insert Images</label>
+					<input type="file" name="step_9_images" (change)="step_9_upload($event)">
+				</div>
+				<div   >
+	                <ul class="list-group">
+	                    <li *ngFor ="let image of step_9_images index as i" class="list-group-item"
+	                    ><img style="width: 50px; height: 50px" [src]="image"> &nbsp; <i class="fa fa-times fa-2x" aria-hidden="true" (click)="delete_image(i)"></i></li>
+	                </ul>
+	            </div>
+			</form>
+			<ng-template #readBlock>
+				<button type="button" class="btn btn-primary" routerLink="../step-8/">Prev</button>
+					<button type="button" class="btn btn-primary" routerLink="../step-10/">Next</button>
+			</ng-template>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+.topBar{
+	margin-top: 8px;
+}
+.btn{
+	border-radius: 0;
+}
+.content1{
+	margin-top: 20px;
+}
+.topButton{
+	background-color: #1e1e1e;
+	color: #fff;
+}
+.mybtn1{
+	margin-top: 5px;
+	padding: 5px;
+}
+
+
+
+
+@media (max-width: 767px)
+{
+
+}

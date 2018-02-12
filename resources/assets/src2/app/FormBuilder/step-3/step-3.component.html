@@ -1,0 +1,83 @@
+<div class="form-area">	
+	<div class="col-sm-8 form-content">
+		<div class="page">
+			<!-- header -->
+			<div class="jumbotron topBar">
+				<img src="images/logo.svg">
+			</div>
+			<hr class="bottomBar">
+			<!-- content -->
+			<div class="inner-content" id="step-3">
+				<h2 class="text-center">"Builder-name" Contact Details</h2>
+				<div class="contact_details">
+					<p><b>{{contact_Region}}:</b></p>
+					<p><b>{{contact_Executive}}:</b></p>
+					<p><b>{{contact_Address}}:</b></p>
+					<p><b>{{contact_ACN}}:</b></p>
+					<hr class="bottomBar1">
+				</div>
+				<h2 class="text-center">Trader Contact Details</h2>
+				<div class="contact_details">
+					<p><b>{{trader_Contact}}:</b></p>
+					<p><b>{{trader_Mobile}}:</b></p>
+					<p><b>{{trader_email}}:</b></p>
+					<hr class="bottomBar1">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4 form-sidebar">
+			<div>
+				<div class="page-header">
+					<h4>Step 3</h4>
+				</div>
+				<form *ngIf="!read_mode ; else readBlock" #step_3_form = "ngForm" (ngSubmit)="step_3_form.reset()">
+			        <div class="button_position">
+				        <button type="button" class="btn btn-primary" routerLink="../step-2/" (click)="step_3_form_submit(step_3_form.value)">Prev</button>
+				        <button type="button" class="btn btn-primary" routerLink="../step-4/" (click)="step_3_form_submit(step_3_form.value)">Next</button>
+			        </div>
+					<div class="form-group">
+						<label>Enter Region </label>
+					    <input type="text" [(ngModel)]="contact_Region"  name="contact_Region"  class="form-control" placeholder="Enter Region"   >
+			        </div>
+
+			        <div class="form-group">
+						<label>Enter Executive</label>
+					    <input type="text" [(ngModel)]="contact_Executive"  name="contact_Executive" class="form-control" placeholder="Enter Executive"   >
+			        </div>
+
+			        <div class="form-group">
+						<label>Enter Address</label>
+					    <input type="text" [(ngModel)]="contact_Address"  name="contact_Address" class="form-control" placeholder="Enter Address"   >
+			        </div>
+
+			        <div class="form-group">
+						<label>Enter ACN</label>
+					    <input type="text" [(ngModel)]="contact_ACN"  name="contact_ACN" class="form-control" placeholder="Enter your ACN"   >
+			        </div>
+
+			        <h3>Trader Contact Details</h3>
+
+			        <div class="form-group">
+						<label>Enter Trader Contact</label>
+					    <input type="text" [(ngModel)]="trader_Contact"  name="trader_Contact" class="form-control" placeholder="Enter Conatct"   >
+			        </div>
+			        
+			        <div class="form-group">
+						<label>Enter Trader Mobile</label>
+					    <input type="text" [(ngModel)]="trader_Mobile" name="trader_Mobile"  class="form-control" placeholder="Enter Contact"   >
+			        </div>
+
+			        <div class="form-group">
+						<label>Enter Email</label>
+					    <input type="email" [(ngModel)]="trader_email" name="trader_email"  class="form-control" placeholder="Enter trader email"   >
+			        </div>
+				</form>
+				<!-- when viewing -->
+				<ng-template #readBlock>
+					<button type="button" class="btn btn-primary" routerLink="../step-2/">Prev</button>
+				        <button type="button" class="btn btn-primary" routerLink="../step-4/">Next</button>
+				</ng-template>
+			</div>
+	</div>
+</div>

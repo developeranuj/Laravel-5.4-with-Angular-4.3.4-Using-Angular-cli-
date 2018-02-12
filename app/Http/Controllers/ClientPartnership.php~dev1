@@ -1,0 +1,191 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Partnership;
+
+class ClientPartnership extends Controller
+{
+  
+
+   	public function CreatePartnership(request $request){
+   		$builder_id = $request->builder;
+   		$date_from = $request->date_from['formatted'];
+   		$date_end = $request->date_end['formatted'];
+		    $newpartnership = new Partnership();
+
+	        $newpartnership->fill([
+	            'builder' => $builder_id,
+	            'date_from'=> $date_from,
+	            'date_end'=> $date_end,
+	            'trader'=> $request->trader,
+	            'fixed_pricing_guarantee_from'=> $request->fixed_pricing_guarantee_from,
+	            'fixed_pricing_guarantee_to'=> $request->fixed_pricing_guarantee_to,
+	            'nett_advantage_guarantee'=> $request->nett_advantage_guarantee,
+				'nett_pricing_guarantee'=> $request->nett_pricing_guarantee,
+				'per_dwelling_support_house_amount'=> $request->per_dwelling_support_house_amount,
+				'per_dwelling_support_units_amount'=> $request->per_dwelling_support_units_amount,
+	            'display_home_support_product'=> $request->display_home_support_product,
+	            'joint_marketing_material'=> $request->joint_marketing_material,
+	            'joint_marketing_fund'=> $request->joint_marketing_fund,
+	            'social_media_support'=> $request->social_media_support,
+	            'display_home_support_cash_amount'=> $request->display_home_support_cash_amount,
+	            'display_home_support_cash_year'=> $request->display_home_support_cash_year,
+	            'training'=> $request->training,
+	            'upsell_program'=> $request->upsell_program,
+	            'year_warranty'=> $request->year_warranty,
+	            //'form_number'=> $request->form_number,
+	            'status'=> 'pending',
+	        ]);
+
+	        
+	        $newpartnership->save();
+
+	        if($newpartnership->save()){
+
+	        	return response()->json(['status' => true,'message' => 'You have successfully created partnership'], 200);
+	        }else{
+
+	        	return response()->json(['status' => false,'message' => 'Somthing went wrong!'], 200);
+	        }
+    }
+
+    
+    public function UpdatePartnership(request $request){
+    		$builder_id = $request->builder['id'];
+   			$date_from = $request->date_from['formatted'];
+   			$date_end = $request->date_end['formatted'];
+ 
+		    $updatepartnership = Partnership::where('id', '=',  $request->id)->first();
+
+	        $updatepartnership->update([
+	           'builder' => $builder_id,
+	            'date_from'=> $date_from,
+	            'date_end'=> $date_end,
+	            'trader'=> $request->trader,
+	            'fixed_pricing_guarantee_from'=> $request->fixed_pricing_guarantee_from,
+	             'fixed_pricing_guarantee_to'=> $request->fixed_pricing_guarantee_to,
+	            'nett_advantage_guarantee'=> $request->nett_advantage_guarantee,
+				'nett_pricing_guarantee'=> $request->nett_pricing_guarantee,
+				'per_dwelling_support_house_amount'=> $request->per_dwelling_support_house_amount,
+				'per_dwelling_support_units_amount'=> $request->per_dwelling_support_units_amount,
+	            'display_home_support_product'=> $request->display_home_support_product,
+	            'joint_marketing_material'=> $request->joint_marketing_material,
+	            'joint_marketing_fund'=> $request->joint_marketing_fund,
+	            'social_media_support'=> $request->social_media_support,
+	            'display_home_support_cash_amount'=> $request->display_home_support_cash_amount,
+	            'display_home_support_cash_year'=> $request->display_home_support_cash_year,
+	            'training'=> $request->training,
+	            'upsell_program'=> $request->upsell_program,
+	            'year_warranty'=> $request->year_warranty,
+	            //'form_number'=> $request->form_number,
+	            'status'=> $request->status,
+	        ]);
+	       
+	        $updatepartnership->save();
+
+	        if($updatepartnership->save()){
+
+	        	return response()->json(['status' => true,'message' => 'You have successfully updated partnership'], 200);
+	        }else{
+
+	        	return response()->json(['status' => false,'message' => 'Somthing went wrong!'], 200);
+	        }
+    }
+
+
+    public function GetPartnerships(request $request){
+
+	    $getpartnerships = Partnership::with('client','user')->get();
+
+        if(empty($getpartnerships)){
+
+        	return response()->json(['status' => false,'message' => 'Nothing found'], 200);
+        	
+        }else{
+
+        	return response()->json(['status' => true,'getpartnerships' => $getpartnerships], 200);
+        }
+
+    }
+
+    public function RecentPartnerships(request $request){
+
+	    
+	    $recentPartnerships = Partnership::with('client','user')
+                     
+                     ->orderBy('created_at')->take(10)->get(); //order by "created at" + limit by 10 records
+	    
+	    $expiringPartnerships = Partnership::with('client','user')
+	                       ->orderBy('date_end')->take(10)->get(); //order by "date_end" + limit by 10 records
+	    
+	    $data['recent'] = $recentPartnerships;
+	    $data['expiring'] = $expiringPartnerships;
+
+        if(empty($recentPartnerships)){
+
+        	return response()->json(['status' => false,'message' => 'Nothing found'], 200);
+        	
+        }else{
+
+        	return response()->json(['status' => true,'partnerships' => $data], 200);
+        }
+
+    }
+
+    public function GetSinglePartnerships(request $request){
+
+	    $get_single_partnerships = Partnership::where('id', '=',  $request->id)->first();
+
+        if(empty($get_single_partnerships)){
+
+        	return response()->json(['status' => false,'message' => 'Nothing found'], 200);
+        	
+        }else{
+
+        	return response()->json(['status' => true,'singlepartnerships' => $get_single_partnerships], 200);
+        }
+
+    }
+
+    public function DeleteSinglePartnerships(request $request){
+
+	    $deletesinglepartnerships = Partnership::where('id', '=',  $request->id)->delete();
+
+        if(empty($deletesinglepartnerships)){
+
+        	return response()->json(['status' => false,'error' => 'Error in deleting partnership'], 200);
+        	
+        }else{
+
+        	return response()->json(['status' => true,'singlepartnerships' => 'Deleted Successfully'], 200);
+        }
+
+    }
+
+    public function PartnershipFormImageUploads(request $request ){
+    	
+         $destinationPath = "uploads/form"; // upload path
+         $extension = $request->file('file')->getClientOriginalExtension(); // getting image
+         $fileName = rand(11111,99999).'.'.$extension; // renameing image
+         $request->file('file')->move($destinationPath, $fileName); // uploading file
+         $url =  url('/').'/uploads/form/'.$fileName;
+        return response()->json(['status' => true, 'link' => $url ], 200);
+	}
+
+	//Form image uploads
+
+	public function BuilderImageUploads(request $request ){
+    	
+         $destinationPath = "uploads/builders"; // upload path
+         $extension = $request->file('file')->getClientOriginalExtension(); // getting image
+         $fileName = rand(11111,99999).'.'.$extension; // renameing image
+         $request->file('file')->move($destinationPath, $fileName); // uploading file
+         $url =  url('/').'/uploads/builders/'.$fileName;
+        return response()->json(['status' => true, 'link' => $url ], 200);
+	}
+	
+
+}
+

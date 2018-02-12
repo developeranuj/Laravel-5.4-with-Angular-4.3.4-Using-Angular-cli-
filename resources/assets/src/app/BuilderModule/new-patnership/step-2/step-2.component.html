@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-8 form-content" id="content" #content>
+    
+      <!-- step-2 -->
+      <div class="pdf_content step_2" style="height: 840px; background-color:#fff;padding:35px;box-sizing: border-box;box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);border-bottom: 1px solid #000;" >
+
+        <!-- <div class="page" > -->
+          <div style="width: fit-content;padding-top: 10px;margin: 0 auto; margin-bottom: 8px" *ngFor ="let image of step_2_data index as i">
+
+            <img class="img-responsive" style="height: 150px; width: auto;" alt="image" [src]="image"> 
+            
+          </div>
+        <!-- </div> -->
+    </div>
+  </div>
+  <div class="col-sm-4 form-sidebar">
+    <!-- step-2 -sidebar -->
+    <div class="aside-section">
+      <aside>
+        <h4 class="text-left">Step-2</h4>
+        <!-- <button type="button" class="btn btn-default" (click)="make_a4()" id="trigger">Set on A4</button> -->
+        <button type="submit" routerLink="../" class="btn btn-default customButton">Prev</button>
+        <button type="submit" (click)="nextstep()" class="btn btn-default customButton">Next</button>
+      </aside>
+    </div>
+  </div>
+</div>

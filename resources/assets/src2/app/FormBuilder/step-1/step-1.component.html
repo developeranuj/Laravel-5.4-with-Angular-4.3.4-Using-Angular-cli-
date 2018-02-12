@@ -1,0 +1,57 @@
+<div class="form-area">
+	<div class="col-sm-8 form-content">
+		<div class="page">
+			<!-- header -->
+			<div class="jumbotron topBar">
+				<img src="images/logo.svg">
+			</div>
+			<hr class="bottomBar">
+			<!-- content div -->
+			<div class="inner-content" id="step-1">
+				<div id="top_heading">
+					<h1 id="step_1_heading" >{{step_1_heading}}</h1>
+				</div>
+				
+				<img src="images/150x150.png" id="builder_logo" alt="builder logo here">
+				<br>
+
+				<h4 id="step_1_supporting_partners_heading">{{step_1_supporting_partners_heading}}</h4>
+
+			</div>
+			<!-- footer -->
+			<div  id="footer" class="fixed-bottom">
+				<hr class="bottomBar">
+				<div class="jumbotron footBar">
+					<div class="col-sm-offset-3 col-sm-6  text-center">
+		                <h4 class="foot-titile">Flexibility - Passion - Partership</h4>
+		              </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- sidebar -->
+	<div class="col-sm-4 form-sidebar">
+		<div id="step_1_sidebar">
+			<div class="page-header navigation_wrap">
+				<h4>Step 1</h4>
+			</div>
+			<form class="side_form" *ngIf="!read_mode ; else readBlock" #step_1_form = "ngForm" (ngSubmit)="step_1_form.reset()" ngNativeValidate>
+				<div class="button_position">
+					<button type="button" class="btn btn-primary"   (click)="step_1_form_submit(step_1_form.value)">Next</button>
+				</div>
+				<div class="form-group">
+					<label>Proposal Heading</label>
+					<input class="form-control" type="text" name="step_1_heading" [(ngModel)] = "step_1_heading" placeholder="Heading of the proposal">
+				</div>
+				
+				<div class="form-group">
+					<label>Supporting Partners Heading</label>
+					<input class="form-control" type="text" name="step_1_supporting_partners_heading" [(ngModel)] ="step_1_supporting_partners_heading" placeholder="supporting partners heading">
+				</div>
+			</form>
+			<ng-template #readBlock>
+				<button type="button" class="btn btn-primary"  (click)="next_step()">Next</button>
+			</ng-template>
+		</div>
+	</div>
+</div>

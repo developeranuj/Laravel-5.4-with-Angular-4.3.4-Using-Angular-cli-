@@ -1,0 +1,28 @@
+.form-area{
+    min-height: 100vh;
+}
+.topBar {
+    background-color: #1e1e1e;
+    text-align: right;
+    border-radius: 0;
+    margin-bottom: 0px;
+    padding: 20px 40px 5px 40px;
+    margin-top: 2px;
+}
+.topBar img{
+        max-height: 45px;
+}
+.bottomBar{
+    margin: 0;
+    background-color: #c5e74e;
+    padding: 5px;
+}
+.step_10_questions h4{
+    font-weight: bold;
+}
+.step_10_questions{
+    padding: 0 20px;
+}
+.step_10_questions h3 {
+    color: #91ad32;
+}

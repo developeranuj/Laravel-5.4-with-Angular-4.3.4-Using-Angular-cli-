@@ -1,0 +1,39 @@
+.topBar{
+    background-color: #1e1e1e;
+    text-align: right; 
+    border-radius: 0; 
+    margin-bottom: 0px; 
+    padding: 20px 10px; 
+    margin-top: 2px;
+    height: 150px;
+}
+
+.bottomBar{
+    margin: 0; 
+    background-color: #c5e74e;
+    padding: 8px;
+}
+#footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.footBar{
+    background-color: #1e1e1e;
+    margin-bottom: 0px;
+    padding-top: 0;
+    border-radius: 0px;
+    height: 100px;
+}
+h4.foot-titile {
+    padding-top: 33px; 
+    color: #91ad32;
+}
+#top_heading{
+    min-height:150px;
+    margin-top:30px;
+    padding: 50px 0;
+}
+#step_1_heading {
+    color: #91ad32;
+}
